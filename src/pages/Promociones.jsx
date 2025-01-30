@@ -5,11 +5,15 @@ import promo from "../assets/images/promociones/promo.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import ModalPromocion from "../components/ModalPromocion";
 
 
 
 
  const Promociones = () => {
+    const [modalPromocion, setModalPromocion] = useState(false);
+
+
     useEffect(function () {
         Aos.init({ duration: 1000 });
       }, []);
@@ -42,7 +46,7 @@ import { useEffect, useState } from "react";
         return;
       }
       
-      let mensaje = `Hola Soy *${formInputs.nombre}*, soy de la carrera *${formInputs.universidad}* y deseo cotizar y adquirir el servicio de *${formInputs.promocion}*`;
+      let mensaje = `Hola Soy *${formInputs.nombre}*, soy de la carrera *${formInputs.carrera}*de la universidad *${formInputs.universidad}* y deseo adquirir la promoción  *${formInputs.promocion}*`;
       const numero = "922060146";
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -84,6 +88,7 @@ import { useEffect, useState } from "react";
                               <img
                                data-aos="zoom-in"
                                data-aos-duration="700"
+                               onClick={() => setModalPromocion(true)}
                                src={promo} 
                                className="block"
                                alt="back_hero" 
@@ -117,10 +122,10 @@ import { useEffect, useState } from "react";
                                     onChange={handleChange}
                                   >
                                     <option value="" disabled defaultValue>
-                                      Selecciona promocion
+                                      Selecciona la oferta  
                                     </option>
-                                    <option value="Promo1">Oferta al Contado</option>
-                                    <option value="Promo2">Oferta Financiada en Cuotas</option>
+                                    <option value="Oferta al Contado">Oferta al Contado</option>
+                                    <option value="Oferta Financiada en Cuotas">Oferta Financiada en Cuotas</option>
   
                                   </select>
                                   <input
@@ -129,7 +134,7 @@ import { useEffect, useState } from "react";
                                     name="carrera"
                                     id="carrera"
                                     required
-                                    placeholder="carreras"
+                                    placeholder="Carreras"
                                     onChange={handleChange}
                                   />
                                   <input
@@ -138,7 +143,7 @@ import { useEffect, useState } from "react";
                                     name="universidad"
                                     id="universidad"
                                     required
-                                    placeholder="universidad"
+                                    placeholder="Universidad"
                                     onChange={handleChange}
                                   />
                                   <input
@@ -158,9 +163,11 @@ import { useEffect, useState } from "react";
                           
                   </div>
                        
-
                 </section>
-
+                <ModalPromocion
+                  activeModal = {modalPromocion}
+                  setActiveModal = {setModalPromocion}
+                />
             </main>
         </LayoutApp>
     )
