@@ -2,6 +2,7 @@ import { Route, Router, Routes } from "react-router-dom";
 import React, { Suspense } from "react";
 import NotFound from "./pages/NotFound";
 import spinner from "./assets/icons/spinner.svg";
+import ReactPixel from 'react-facebook-pixel';
 
 const Home = React.lazy(() => import("./pages/Home"));
 const Nosotros = React.lazy(() => import("./pages/Nosotros"));
@@ -23,9 +24,15 @@ const ArticuloCientifico = React.lazy(() =>
 );
 const Centro = React.lazy(() => import("./pages/Centro"));
 const Cursos = React.lazy(() => import("./pages/Cursos"));
-const LibroReclamasiones = React.lazy(() =>
-  import("./pages/LibroReclamasiones")
-);
+const LibroReclamasiones = React.lazy(() => import("./pages/LibroReclamasiones"));
+
+const options = {
+  autoConfig: true, 
+  debug: false,    
+};
+
+ReactPixel.init('513437207979144', options); 
+ReactPixel.pageView(); 
 
 export const App = () => {
   return (

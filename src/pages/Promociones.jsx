@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LayoutApp from "../layout/LayoutApp";
 import backgroundPromocion from "../assets/images/banners/backgroundPromociones.webp"
-import promo from "../assets/images/promociones/promo.png"
+import promosanvalentin from "../assets/images/promociones/PromoSanValentin.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
@@ -20,7 +20,6 @@ import ModalPromocion from "../components/ModalPromocion";
 
     const[formInputs, setFormInputs] = useState({
         nombre: "",
-        promocion: "",
         carrera: "",
         universidad: "",
     });
@@ -37,17 +36,17 @@ import ModalPromocion from "../components/ModalPromocion";
       if (
         [
           formInputs.nombre.trim(),
-          formInputs.promocion.trim(),
           formInputs.carrera.trim(),
           formInputs.universidad.trim(),
+          
         ].some((field) => field === "")
       ){
         alert("Ingrese todos los campos");
         return;
       }
       
-      let mensaje = `Hola Soy *${formInputs.nombre}*, soy de la carrera *${formInputs.carrera}*de la universidad *${formInputs.universidad}* y deseo adquirir la promoción  *${formInputs.promocion}*`;
-      const numero = "922060146";
+      let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo adquirir la promoción de San Valentín para mi tesis`;
+      const numero = "51922060146";
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
@@ -81,15 +80,19 @@ import ModalPromocion from "../components/ModalPromocion";
                 </div>
 
 
-                <section className="bg_gradient_main pb-[263px] pt-10" >
-                  <div className=" lg:flex-row flex-col  flex justify-center items-center gap-[175px]">
-                     
+                <section className="bg_gradient_main pb-[263px]" >
+                  <div data-aos="zoom-in" className="flex pb-[70px] pt-10 w-full justify-center text-white text-[22px] ">
+                    <h2 className=" uppercase font-semibold sm:text-[30px] md:text-[38px]">¡promo san valentín!</h2>
+                  </div>
+                  
+                  <div className=" lg:flex-row flex-col  flex justify-center items-center gap-[72px]">
+                    
                      <div className="1xl:w-[600px] w-[80%] sm:w-[500px]">
                               <img
                                data-aos="zoom-in"
                                data-aos-duration="700"
                                onClick={() => setModalPromocion(true)}
-                               src={promo} 
+                               src={promosanvalentin} 
                                className="block"
                                alt="back_hero" 
                                draggable={false}
@@ -113,21 +116,7 @@ import ModalPromocion from "../components/ModalPromocion";
                                     placeholder="Nombre"
                                     onChange={handleChange}
                                   />
-                                  <select
-                                    name="option_service"
-                                    id="promocion"
-                                    className="block w-full  border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                                    defaultValue=""
-                                    required
-                                    onChange={handleChange}
-                                  >
-                                    <option value="" disabled defaultValue>
-                                      Selecciona la oferta  
-                                    </option>
-                                    <option value="Oferta al Contado">Oferta al Contado</option>
-                                    <option value="Oferta Financiada en Cuotas">Oferta Financiada en Cuotas</option>
-  
-                                  </select>
+                                  
                                   <input
                                     className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
                                     type="text"

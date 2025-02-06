@@ -52,7 +52,7 @@ const Home = () => {
     }
 
     let mensaje = `Hola soy *${formInputs.nombre}*, soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}*  y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
-    const numero = "922060146";
+    const numero = "51922060146";
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
