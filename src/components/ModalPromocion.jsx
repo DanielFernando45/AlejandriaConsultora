@@ -1,5 +1,5 @@
 import React from "react";
-import promocion from "../assets/images/promociones/promo.png";
+import promosanvalentin from "../assets/images/promociones/PromoSanValentin.png"
 
 const ModalPromocion = ({activeModal, setActiveModal}) =>{
     return (
@@ -12,7 +12,7 @@ const ModalPromocion = ({activeModal, setActiveModal}) =>{
         >
             
           <img 
-            src={promocion}
+            src={promosanvalentin}
             className="w-[700px]  2xl:w-[800px] 4xl:w-[1000px]"
             alt="img_promo"
            />
