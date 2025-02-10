@@ -31,7 +31,7 @@ const options = {
   debug: false,    
 };
 
-ReactPixel.init('513437207979144', options); 
+ReactPixel.init('993020102671178', options); 
 ReactPixel.pageView(); 
 
 export const App = () => {
