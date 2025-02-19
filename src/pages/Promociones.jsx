@@ -1,22 +1,30 @@
 import { Link } from "react-router-dom";
 import LayoutApp from "../layout/LayoutApp";
 import backgroundPromocion from "../assets/images/banners/backgroundPromociones.webp"
-import promosanvalentin from "../assets/images/promociones/PromoSanValentin.png"
+import regresoclases from "../assets/images/promociones/PromoRegresoClases.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import ModalPromocion from "../components/ModalPromocion";
 
 
-
-
  const Promociones = () => {
     const [modalPromocion, setModalPromocion] = useState(false);
-
-
     useEffect(function () {
         Aos.init({ duration: 1000 });
       }, []);
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          const section = document.getElementById("seccionObjetivo");
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100); // Espera 2 segundos antes de hacer scroll
+    
+        return () => clearTimeout(timer); // Limpia el timeout si el componente se desmonta
+      }, []);
+
 
     const[formInputs, setFormInputs] = useState({
         nombre: "",
@@ -45,7 +53,7 @@ import ModalPromocion from "../components/ModalPromocion";
         return;
       }
       
-      let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo adquirir la promoción de San Valentín para mi tesis`;
+      let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo adquirir la promoción De Regreso a Clases`;
       const numero = "51922060146";
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -79,10 +87,10 @@ import ModalPromocion from "../components/ModalPromocion";
                     </div>
                 </div>
 
-
-                <section className="bg_gradient_main pb-[263px]" >
+        
+                <section id="seccionObjetivo" className="bg_gradient_main pb-[263px]" >
                   <div data-aos="zoom-in" className="flex pb-[70px] pt-10 w-full justify-center text-white text-[22px] ">
-                    <h2 className=" uppercase font-semibold sm:text-[30px] md:text-[38px]">¡promo san valentín!</h2>
+                    <h2 className=" uppercase font-semibold text-[16px] sm:text-[30px] md:text-[38px]">¡promo regreso a clases!</h2>
                   </div>
                   
                   <div className=" lg:flex-row flex-col  flex justify-center items-center gap-[72px]">
@@ -92,7 +100,7 @@ import ModalPromocion from "../components/ModalPromocion";
                                data-aos="zoom-in"
                                data-aos-duration="700"
                                onClick={() => setModalPromocion(true)}
-                               src={promosanvalentin} 
+                               src={regresoclases} 
                                className="block"
                                alt="back_hero" 
                                draggable={false}
