@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LayoutApp from "../layout/LayoutApp";
 import backgroundPromocion from "../assets/images/banners/backgroundPromociones.webp"
-import regresoclases from "../assets/images/promociones/PromoRegresoClases.png"
+import wow from "../assets/images/promociones/CyberWow.png"
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
@@ -53,7 +53,7 @@ import ModalPromocion from "../components/ModalPromocion";
         return;
       }
       
-      let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo adquirir la promoción De Regreso a Clases`;
+      let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo adquirir la promoción del CYBERWOW`;
       const numero = "51922060146";
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -90,7 +90,7 @@ import ModalPromocion from "../components/ModalPromocion";
         
                 <section id="seccionObjetivo" className="bg_gradient_main pb-[263px]" >
                   <div data-aos="zoom-in" className="flex pb-[70px] pt-10 w-full justify-center text-white text-[22px] ">
-                    <h2 className=" uppercase font-semibold text-[16px] sm:text-[30px] md:text-[38px]">¡promo regreso a clases!</h2>
+                    <h2 className=" uppercase font-semibold text-[16px] sm:text-[30px] md:text-[38px]">CYBER WOW</h2>
                   </div>
                   
                   <div className=" lg:flex-row flex-col  flex justify-center items-center gap-[72px]">
@@ -100,7 +100,7 @@ import ModalPromocion from "../components/ModalPromocion";
                                data-aos="zoom-in"
                                data-aos-duration="700"
                                onClick={() => setModalPromocion(true)}
-                               src={regresoclases} 
+                               src={wow} 
                                className="block"
                                alt="back_hero" 
                                draggable={false}

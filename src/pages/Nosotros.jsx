@@ -4,7 +4,6 @@ import background_main from "../assets/images/banners/backgroundNosotros.webp";
 import image_01 from "../assets/images/nosotros/image_01.webp";
 import image_02 from "../assets/images/nosotros/image_02.webp";
 import image_03 from "../assets/images/nosotros/image_03.webp";
-import image_04 from "../assets/images/nosotros/image_04.webp";
 import image_06 from "../assets/images/nosotros/image_06.webp";
 import image_07 from "../assets/images/nosotros/image_07.webp";
 import image_08 from "../assets/images/nosotros/image_08.webp";
@@ -35,7 +34,7 @@ import icono_11 from "../assets/images/empresa_04.webp";
 //
 import ModaMgGiancarlo from "../components/ModaMgGiancarlo";
 import ModalMgDiana from "../components/ModalMgDiana";
-import ModalMgJenn from "../components/ModalMgJenn";
+
 import ModalMgBrenda from "../components/ModalMgBrenda";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
@@ -43,7 +42,6 @@ import { Link } from "react-router-dom";
 const Nosotros = () => {
   const [modalMgGiancarlo, setModalMgGiancarlo] = useState(false);
   const [modalMgDiana, setModalMgDiana] = useState(false);
-  const [modalMgJenn, setModalMgJenn] = useState(false);
   const [modalMgBrenda, setModalMgBrenda] = useState(false);
 
   return (
@@ -573,41 +571,7 @@ const Nosotros = () => {
                   </Link>
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="1xl:w-[519px] 1xl:h-[617px] 4xl:h-[755px] 4xl:w-[519px] flex flex-col gap-y-[40px] lg:gap-y-[60px] text-center mx-auto">
-                  <img
-                    data-aos="zoom-in"
-                    data-aos-offset="100"
-                    onClick={() => setModalMgJenn(true)}
-                    className="cursor-pointer w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] lg:w-[200px] lg:h-[200px] 1xl:w-[270px] 1xl:h-[270px] 4xl:w-[400px] 4xl:h-[400px] block rounded-full mx-auto object-cover"
-                    src={image_04}
-                    alt="image_01"
-                  />
-                  <div className="w-[161px] sm:w-[238px] lg:w-[261px] 1xl:w-[519px]">
-                    <p className="text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[35px] 4xl:text-[50px] text-white font-extrabold">
-                      Mg. Jenn García
-                    </p>
-                    <p className="text-[12px] sm:text-[18px] 1xl:text-[30px] 4xl:text-[35px] text-[#0CB2D5] text-center font-semibold mt-[20px]">
-                      Supervisor de Ingeniería & Arquitectura
-                    </p>
-                  </div>
-                  <Link
-                    to={
-                      "https://www.linkedin.com/in/jen-garc%C3%ADa-guzm%C3%A1n-00a417176/"
-                    }
-                    target="_blank"
-                    className="block mx-auto w-[60px] h-[60px] lg:w-[80px] lg:h-[80px]"
-                  >
-                    <img
-                      data-aos="zoom-in"
-                      data-aos-offset="100"
-                      src={icon_06}
-                      className="block w-full h-full"
-                      alt="icon_06"
-                    />
-                  </Link>
-                </div>
-              </div>
+              
             </div>
           </div>
         </section>
@@ -618,10 +582,6 @@ const Nosotros = () => {
         <ModalMgDiana
           activeModal={modalMgDiana}
           setActiveModal={setModalMgDiana}
-        />
-        <ModalMgJenn
-          activeModal={modalMgJenn}
-          setActiveModal={setModalMgJenn}
         />
         <ModalMgBrenda
           activeModal={modalMgBrenda}
