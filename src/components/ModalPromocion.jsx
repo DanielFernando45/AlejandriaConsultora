@@ -1,5 +1,5 @@
 import React from "react";
-import wow from "../assets/images/promociones/CyberWow.png"
+import promos from "../assets/images/promociones/PromoNiveles.png"
 
 const ModalPromocion = ({activeModal, setActiveModal}) =>{
     return (
@@ -12,7 +12,7 @@ const ModalPromocion = ({activeModal, setActiveModal}) =>{
         >
             
           <img 
-            src={wow}
+            src={promos}
             className="w-[700px]  2xl:w-[800px] 4xl:w-[1000px]"
             alt="img_promo"
            />
