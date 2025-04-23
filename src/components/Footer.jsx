@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="space-y-4 lg:space-y-4 text-[14px] sm:text-[20px] lg:text-[16px]">
             <div className="text-white space-y-[20px]">
               <h3 className="uppercase text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[20px] font-semibold">
-                Sede principal
+                Sede Principal
               </h3>
               <div className="flex gap-x-[20px]">
                 <figure className="w-[22px] h-[26.83px]">
@@ -64,7 +64,7 @@ const Footer = () => {
                   />
                 </figure>
                 <p className="leading-[24.38px] font-semibold">
-                  C. Enrique Villar 159, Ofic. 201 - Urb. Santa Beatriz, Lima
+                    Calle Bolognesi 229, oficina 702 frente a la Embajada de Canadá - Miraflores
                 </p>
               </div>
             </div>

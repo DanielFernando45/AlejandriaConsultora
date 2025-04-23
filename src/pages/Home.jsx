@@ -600,7 +600,7 @@ const Home = () => {
               {/* MAPA */}
 
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7803.033579289644!2d-77.03623810132267!3d-12.0767320240838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f2f78e64eb%3A0xf924bb7130b86f09!2sC.%20Enrique%20Villar%20159%2C%20Lima%2015046!5e0!3m2!1ses!2spe!4v1735248629813!5m2!1ses!2spe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d289.9346312717916!2d-77.03602369539553!3d-12.120370869749902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c822dc87dc0b%3A0xbc6adb55c42fa1e8!2sOficina%20702%2C%20Bolognesi%20229%2C%20Miraflores%20LIMA%2018!5e0!3m2!1ses!2spe!4v1745447955154!5m2!1ses!2spe"
                 width="600"
                 height="650"
                 className="mn:w-[340px] h-[222px] sm:w-[524px] sm:h-[222px] lg:w-full lg:h-[400px] mx-auto 1xl:[500px] rounded-3xl border "
