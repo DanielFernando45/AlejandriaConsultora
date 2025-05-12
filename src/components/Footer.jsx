@@ -30,7 +30,7 @@ const Footer = () => {
                 <figure className="w-[22px] h-[24.64px]">
                   <img src={icono_contacto_01} alt="icono-telefono" />
                 </figure>
-                <p className="xl:text-[20px]">922 060 146</p>
+                <p className="xl:text-[20px]">989 575 820</p>
               </div>
               <div className="text-white flex gap-x-4 items-end">
                 <figure className="w-[22px] h-[24.64px]">
