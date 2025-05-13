@@ -22,7 +22,7 @@ const Promociones = () => {
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100); // Espera 2 segundos antes de hacer scroll
+    }, 200); // Espera 2 segundos antes de hacer scroll
 
     return () => clearTimeout(timer); // Limpia el timeout si el componente se desmonta
   }, []);
@@ -91,7 +91,7 @@ const Promociones = () => {
         </div>
 
 
-        <section className="bg_gradient_main pb-[263px]" >
+        <section id="seccionObjetivo" className="bg_gradient_main pb-[263px]" >
           <div data-aos="zoom-in" className="flex pb-[70px] pt-10 w-full justify-center text-white text-[22px] ">
             <h2 className=" uppercase font-semibold text-[16px] sm:text-[30px] md:text-[38px]">LOS MEJORES PLANES PARA TI</h2>
           </div>
@@ -102,21 +102,21 @@ const Promociones = () => {
 
             <div className="flex gap-5 items-center justify-center 1xl:w-[600px] w-[80%] sm:w-[500px]">
               <img
-                className="transition-transform duration-300 hover:scale-110  4xl:h-[729px]   xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[340px] h-[240px]"
+                className="transition-transform duration-300 hover:scale-110  4xl:h-[800px]   xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[260px] h-[240px]"
                 src={promoBronce}
                 alt="back_hero"
                 draggable={false}
                 decoding="async"
               />
               <img
-                className="transition-transform duration-300 hover:scale-110  4xl:h-[729px]  xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[340px] h-[240px]"
+                className="transition-transform duration-300 hover:scale-110  4xl:h-[800px]  xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[260px] h-[240px]"
                 src={promoPlata}
                 alt="back_hero"
                 draggable={false}
                 decoding="async"
               />
               <img
-                className="transition-transform duration-300 hover:scale-110  4xl:h-[729px]  xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[340px] h-[240px]"
+                className="transition-transform duration-300 hover:scale-110  4xl:h-[800px]  xl:h-[530px]  lg:h-[450px]  sm:h-[400px] mn:h-[260px] h-[240px]"
                 src={promoOro}
                 alt="back_hero"
                 draggable={false}
