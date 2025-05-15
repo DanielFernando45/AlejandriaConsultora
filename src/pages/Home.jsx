@@ -524,9 +524,10 @@ const Home = () => {
                         Teléfono
                       </p>
                       <div className="text-[14px] sm:text-[16px] 4xl:text-[20px] flex justify-evenly font-semibold">
-                        <span>922</span>
-                        <span>060</span>
-                        <span>146</span>
+                        <span>989</span>
+                        <span>575</span>
+                        <span>820</span>
+                        
                       </div>
                     </div>
                   </div>
