@@ -56,7 +56,7 @@ const Promociones = () => {
     }
 
     let mensaje = `Hola Soy *${formInputs.nombre}*, de la carrera de *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y quiero adquirir uno de sus planes`;
-    const numero = "51922060146";
+    const numero = "51989575820";
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");

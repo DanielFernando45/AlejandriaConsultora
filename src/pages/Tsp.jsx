@@ -35,7 +35,7 @@ const Tsp = () => {
   const handleContact = () => {
     event.preventDefault(event);
     let mensaje = `Hola vengo de tu página web y deseo información de los servicios que brindan.`;
-    const numero = "922060146";
+    const numero = "51989575820";
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
