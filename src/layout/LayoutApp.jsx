@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 const LayoutApp = ({ children }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+  const [showPromoOptions, setShowPromoOptions] = useState(false);
 
   const handleContact = () => {
     event.preventDefault(event);
@@ -33,6 +34,7 @@ const LayoutApp = ({ children }) => {
   window.addEventListener("resize", () => {
     setOpenSidebar(false)
     setShowOptions(false)
+    setShowPromoOptions(false)
   })
 
 
@@ -44,6 +46,8 @@ const LayoutApp = ({ children }) => {
         openSidebar={openSidebar}
         handleCloseSidebar={handleCloseSidebar}
         handleContact={handleContact}
+        showPromoOptions={showPromoOptions}
+        setShowPromoOptions={setShowPromoOptions}
       />
       <NavBar
         handleOpenSidebar={handleOpenSidebar}

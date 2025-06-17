@@ -7,10 +7,11 @@ const Sidebar = ({
   handleContact,
   showOptions,
   setShowOptions,
+  showPromoOptions,
+  setShowPromoOptions,
 }) => {
   return (
     <div
-      // onClick={handleCloseSidebar}
       className={`${
         openSidebar ? "visible delay-0" : "invisible delay-100"
       }  w-full h-full fixed bg-black/60 z-30 top-0 left-0 transition-all`}
@@ -31,7 +32,10 @@ const Sidebar = ({
         <div className=" h-[453px] sm:h-[757px] w-full flex flex-col justify-between self-start">
           <div className="space-y-[30px] h-auto">
             <div
-              onClick={() => setShowOptions(!showOptions)}
+              onClick={() => {
+                setShowOptions(!showOptions);
+                setShowPromoOptions(false); // Cerrar el otro menú si está abierto
+              }}
               className="cursor-pointer block w-[90%] text-start font-bold hover:bg-slate-900 p-4 "
             >
               Consultoría
@@ -58,7 +62,7 @@ const Sidebar = ({
             </div>
 
             <Link to={""} className="block font-bold hover:bg-slate-900 p-4">
-            Cursos
+              Cursos
             </Link>
             <Link
               to={"/nosotros"}
@@ -66,12 +70,31 @@ const Sidebar = ({
             >
               Nosotros
             </Link>
-            <Link
-              to={"/promociones"}
-              className="block font-bold hover:bg-slate-900 p-4"
+            
+            <div
+              onClick={() => {
+                setShowPromoOptions(!showPromoOptions);
+                setShowOptions(false); // Cerrar el otro menú si está abierto
+              }}
+              className="cursor-pointer block w-[90%] text-start font-bold hover:bg-slate-900 p-4 "
             >
               Promociones
-            </Link>
+              <div
+                className={`transition-[height] w-[250px] ${
+                  showPromoOptions
+                    ? "h-[80px] relative opacity-100 pt-[10px]"
+                    : "h-0 opacity-0"
+                } flex flex-col justify-between overflow-hidden`}
+              >
+                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700" to={"/promociones"}>
+                  Promociones
+                </Link>
+                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700" to={"/biblia-tesista"}>
+                  La Biblia del Tesista
+                </Link>
+              </div>
+            </div>
+
             <Link
               to={"/centro-recursos"}
               className="block font-bold hover:bg-slate-900 p-4"

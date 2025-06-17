@@ -7,6 +7,7 @@ import ReactPixel from 'react-facebook-pixel';
 const Home = React.lazy(() => import("./pages/Home"));
 const Nosotros = React.lazy(() => import("./pages/Nosotros"));
 const Promociones = React.lazy(()=> import("./pages/Promociones"));
+const LandinPage = React.lazy(()=> import("./pages/LandinPage"));
 const Blog = React.lazy(() => import("./pages/Blog"));
 const MetodologiaInvestigacion = React.lazy(() =>
   import("./pages/MetodologiaInvestigacion")
@@ -55,6 +56,7 @@ export const App = () => {
         />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path ="/promociones" element={<Promociones/>}/>
+        <Route path="/biblia-tesista" element={<LandinPage/>}/>
         <Route path="/centro-recursos" element={<Centro />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/tesis" element={<Tesis />} />

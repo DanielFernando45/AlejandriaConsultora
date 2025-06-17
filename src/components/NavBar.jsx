@@ -7,24 +7,33 @@ const LINKS = [
   { id: 1, path: "", title: "Consultoría" },
   { id: 2, path: "", title: "Cursos" },
   { id: 3, path: "/nosotros", title: "Nosotros" },
-  { id: 4, path: "/promociones", title: "Promociones" },
+  { id: 4, path: "", title: "Promociones" }, // Cambiado path a vacío para el menú desplegable
   { id: 5, path: "/centro-recursos", title: "Centro de recursos" },
   { id: 6, path: "/blog", title: "Blog" },
 ];
 
 const NavBar = ({ handleOpenSidebar, handleContact }) => {
   const [showOptions, setShowOption] = useState(false);
+  const [showPromoOptions, setShowPromoOption] = useState(false);
 
   const handleOption = () => {
     setShowOption(!showOptions);
+    setShowPromoOption(false); // Cerrar el otro menú si está abierto
+  };
+
+  const handlePromoOption = () => {
+    setShowPromoOption(!showPromoOptions);
+    setShowOption(false); // Cerrar el otro menú si está abierto
   };
 
   window.addEventListener("resize", () => {
     setShowOption(false);
+    setShowPromoOption(false);
   });
 
   window.addEventListener("scroll", () => {
     setShowOption(false);
+    setShowPromoOption(false);
   });
 
   return (
@@ -80,6 +89,35 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
                     className="uppercase text-black text-lg block w-full py-1 hover:bg-gray-100"
                   >
                     Plan de negocio
+                  </Link>
+                </div>
+              </div>
+            ) : link.id == 4 ? (
+              <div className="relative">
+                <button
+                  aria-label="Abrir opciones de promociones"
+                  onClick={handlePromoOption}
+                >
+                  {link.title}
+                </button>
+                <div
+                  className={`${
+                    showPromoOptions
+                      ? "visible opacity-100 mt-4"
+                      : "invisible opacity-0 mt-8"
+                  } flex-col absolute top-full  transition-all duration-300 bg-white w-[300px] px-8 py-4 rounded-xl`}
+                >
+                  <Link
+                    to={"/promociones"}
+                    className="uppercase text-black text-lg block w-full py-1 hover:bg-gray-100"
+                  >
+                    Promociones
+                  </Link>
+                  <Link
+                    to={"/biblia-tesista"}
+                    className="uppercase text-black text-lg block w-full py-1 hover:bg-gray-100"
+                  >
+                    La Biblia del Tesista
                   </Link>
                 </div>
               </div>

@@ -474,6 +474,13 @@ body {
 
 /* METODLOGIA INVESTIGACION */
 
+.testi {
+  border-radius: 20px;
+  border: 1px solid #1C1C34;
+  background: linear-gradient(135deg, #0CB2D5 -9.09%, #1C1C34 62.86%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 /*  REVISTAS DEPREDADORAS*/
 .main_background_02 {
   background: linear-gradient(
@@ -503,6 +510,8 @@ body {
 .new {
   background: linear-gradient(to bottom, #424256, #1c1c34 20%, #1c1c34);
 }
+
+
 /*  REVISTAS DEPREDADORAS*/
 
 .list-icon {
@@ -627,8 +636,22 @@ body {
   background: linear-gradient(to bottom, #1c1c34, #fff 10%, #fff);
 }
 
+.digital {
+  background: linear-gradient(to bottom, #1c1c34, #fff 10%, #fff);
+}
+
+.textfinal {
+  line-height: 35px; 
+}
+
+
+
 .gradiend_to_top {
   background-image: linear-gradient(to bottom, #ffff, #1c1c34 3%, transparent);
+}
+
+.hotmart {
+  background-image: linear-gradient(to bottom, #ffff, #1c1c36 20%, #1c1c34);
 }
 
 .linear {
@@ -736,3 +759,12 @@ body {
   /* content: "s"; */
   /* content: url("./assets/icons/tiny_vector.svg"); */
 }
+
+
+/* LIBLIA DEL TESIS */
+.fondo_promo {
+  background-image: url("./assets/images/tesistaBible/bookTesista.png");
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  width: 100%; /* Ancho completo */
+}
+
