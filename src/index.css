@@ -12,9 +12,11 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 /* Sections
@@ -56,9 +58,12 @@ h1 {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
 
 /**
@@ -67,8 +72,10 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /* Text-level semantics
@@ -88,9 +95,12 @@ a {
  */
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -110,8 +120,10 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /**
@@ -167,10 +179,14 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }
 
 /**
@@ -179,7 +195,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -189,7 +206,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -243,12 +261,18 @@ fieldset {
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
@@ -274,8 +298,10 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 /**
@@ -293,8 +319,10 @@ textarea {
  */
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 
 /**
@@ -311,8 +339,10 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 /* Interactive
@@ -360,7 +390,9 @@ template {
   font-style: normal;
 }
 
-*,*::before,*::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -382,16 +414,14 @@ body {
   margin: 0 90px;
 }
 
-.space-y-\[200px\] > :not([hidden]) ~ :not([hidden]) {
+.space-y-\[200px\]> :not([hidden])~ :not([hidden]) {
   margin-top: 0;
 }
 
 .gradiente_testimonio {
-  background: linear-gradient(
-    57deg,
-    rgba(255, 255, 255, 0.75) 10.43%,
-    rgba(255, 255, 255, 0.15) 89.63%
-  );
+  background: linear-gradient(57deg,
+      rgba(255, 255, 255, 0.75) 10.43%,
+      rgba(255, 255, 255, 0.15) 89.63%);
 }
 
 .back_blur {
@@ -412,42 +442,34 @@ body {
 /* BLOG */
 
 .background_blog {
-  background-image: linear-gradient(
-      to top,
+  background-image: linear-gradient(to top,
       #424256 1%,
       rgba(255, 255, 200, 0.1) 60%,
-      rgba(0, 0, 0, 0.5)
-    ),
+      rgba(0, 0, 0, 0.5)),
     linear-gradient(to right, #414198 1%, transparent 20%),
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       rgba(0, 0, 0, 0.1) 10%,
       transparent 20%,
       transparent 30%,
       transparent 90%,
-      #424256
-    ),
+      #424256),
     url(./assets/images/blog/blog_background.webp);
   background-size: cover;
 }
 
 .bg_gradient_main {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 200, 0.1),
-    #424256 -5%,
-    #1c1c34 30%,
-    #1c1c34 20%,
-    #1c1c34 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 200, 0.1),
+      #424256 -5%,
+      #1c1c34 30%,
+      #1c1c34 20%,
+      #1c1c34 100%);
 }
 
 .blog_grandient {
-  background: linear-gradient(
-    217deg,
-    rgba(255, 255, 255, 0.75) -11.17%,
-    rgba(255, 255, 255, 0.15) 100.15%
-  );
+  background: linear-gradient(217deg,
+      rgba(255, 255, 255, 0.75) -11.17%,
+      rgba(255, 255, 255, 0.15) 100.15%);
 }
 
 /* METODLOGIA INVESTIGACION */
@@ -465,11 +487,9 @@ body {
 } */
 
 .bg_gradient_metodologia {
-  background: linear-gradient(
-    to bottom,
-    rgba(66, 66, 86, 1) 0%,
-    rgba(28, 28, 52, 1) 80%
-  );
+  background: linear-gradient(to bottom,
+      rgba(66, 66, 86, 1) 0%,
+      rgba(28, 28, 52, 1) 80%);
 }
 
 /* METODLOGIA INVESTIGACION */
@@ -483,27 +503,21 @@ body {
 
 /*  REVISTAS DEPREDADORAS*/
 .main_background_02 {
-  background: linear-gradient(
-      to top,
+  background: linear-gradient(to top,
       #424256,
       #424256 6%,
       transparent 40%,
-      transparent
-    ),
-    linear-gradient(
-      to bottom,
+      transparent),
+    linear-gradient(to bottom,
       rgba(28, 28, 52, 0.5) 0%,
       transparent 8%,
-      transparent
-    ),
+      transparent),
     linear-gradient(to right, #424256, rgba(255, 255, 255, 0) 50%, transparent),
     linear-gradient(to left bottom, #424256, transparent 25%, transparent 100%),
-    linear-gradient(
-      to right bottom,
+    linear-gradient(to right bottom,
       #424256,
       rgba(255, 255, 255, 0) 40%,
-      transparent
-    );
+      transparent);
   background-size: cover;
 }
 
@@ -527,6 +541,7 @@ body {
   line-height: 0.1;
   margin-right: 10px;
 }
+
 /* BLOG */
 
 .arrow_list,
@@ -626,6 +641,7 @@ body {
     rotate: 180deg;
     right: -2px;
   }
+
   .arrow_list_tsp_02::before {
     content: url("./assets/icons/tiny_vector.svg");
     left: 0;
@@ -640,19 +656,16 @@ body {
   background: linear-gradient(to bottom, #1c1c34, #fff 10%, #fff);
 }
 
-.textfinal {
-  line-height: 35px; 
-}
-
-
 
 .gradiend_to_top {
   background-image: linear-gradient(to bottom, #ffff, #1c1c34 3%, transparent);
 }
 
 .hotmart {
-  background-image: linear-gradient(to bottom, #ffff, #1c1c36 20%, #1c1c34);
+  background-image: linear-gradient(to bottom, #ffff, #1c1c36 15%, #1c1c34);
 }
+
+
 
 .linear {
   background-image: linear-gradient(to top, #fff, #fff 90%, #1c1c34);
@@ -668,50 +681,45 @@ body {
 }
 
 .tesis_grandient_02 {
-  background-image: linear-gradient(
-    to top,
-    lightgray,
-    #424256 10%,
-    #1c1c34 15%,
-    #1c1c34
-  );
+  background-image: linear-gradient(to top,
+      lightgray,
+      #424256 10%,
+      #1c1c34 15%,
+      #1c1c34);
 }
 
 .tesis_grandient_03 {
-  background-image: linear-gradient(
-    to top,
-    #fff,
-    #fff 95%,
-    /* lightgray 75%, */ lightgray
-  );
+  background-image: linear-gradient(to top,
+      #fff,
+      #fff 95%,
+      /* lightgray 75%, */
+      lightgray);
 }
 
 .tesis_grandient_04 {
-  background-image: linear-gradient(
-    to top,
-    #1c1c34,
-    #1c1c34 85%,
-    lightgray 95%,
-    #fff
-  );
+  background-image: linear-gradient(to top,
+      #1c1c34,
+      #1c1c34 85%,
+      lightgray 95%,
+      #fff);
 }
 
 .tesis_grandient_05 {
-  background-image: linear-gradient(
-    to top,
-    #fff,
-    #fff 75%,
-    lightgray 80%,
-    #1c1c34 95%,
-    #1c1c34
-  );
+  background-image: linear-gradient(to top,
+      #fff,
+      #fff 75%,
+      lightgray 80%,
+      #1c1c34 95%,
+      #1c1c34);
 }
+
 /* TESIS */
 
 /* CENTRO */
 .linear_centro_01 {
   background-image: linear-gradient(to top, #1c1c34, #1c1c34 40%, #424256);
 }
+
 /* CENTRO */
 
 /* NOSOTROS */
@@ -751,8 +759,10 @@ body {
   stroke-width: 1;
   fill: transparent;
   /* font-size: 50px; */
-  padding: 4px; /* Aumenta el espacio alrededor del ícono */
-  box-sizing: content-box; /* Asegúrate de que el padding no afecte el tamaño */
+  padding: 4px;
+  /* Aumenta el espacio alrededor del ícono */
+  box-sizing: content-box;
+  /* Asegúrate de que el padding no afecte el tamaño */
 }
 
 .back_comillas::after {
@@ -764,7 +774,8 @@ body {
 /* LIBLIA DEL TESIS */
 .fondo_promo {
   background-image: url("./assets/images/tesistaBible/bookTesista.png");
-  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  width: 100%; /* Ancho completo */
+  background-size: cover;
+  /* Ajusta la imagen para cubrir todo el contenedor */
+  width: 100%;
+  /* Ancho completo */
 }
-
