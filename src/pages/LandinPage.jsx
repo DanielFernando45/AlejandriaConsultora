@@ -1,16 +1,59 @@
+import { useEffect, useState } from "react";
 import LayoutApp from "../layout/LayoutApp";
-// ICONOS
-import tesis from "../assets/images/tesistaBible/tesisimg.png"
-import testimonioOne from "../assets/images/tesistaBible/testimonio1.png"
-import testimonioTwo from "../assets/images/tesistaBible/testimonio2.png"
-import testimonioTree from "../assets/images/tesistaBible/testimonio3.png"
-import garantia from "../assets/images/tesistaBible/GarantiaDorado.png"
-import hotmart2 from "../assets/images/tesistaBible/hotmart2.png"
-import oferta from "../assets/images/tesistaBible/descPromo.png"
-// IMAGES
+import tesis from "../assets/images/tesistaBible/tesisimg.png";
+import testimonioOne from "../assets/images/tesistaBible/testimonio1.png";
+import testimonioTwo from "../assets/images/tesistaBible/testimonio2.png";
+import testimonioTree from "../assets/images/tesistaBible/testimonio3.png";
+import garantia from "../assets/images/tesistaBible/GarantiaDorado.png";
+import hotmart2 from "../assets/images/tesistaBible/hotmart2.png";
+import oferta from "../assets/images/tesistaBible/descPromo.png";
 import capa_04 from "../assets/images/capa_04.png";
 
+const CountdownTimer = ({ duration }) => {
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const saved = localStorage.getItem("countdownEndTime");
+    const endTime = saved ? parseInt(saved) : Date.now() + duration * 1000;
+    localStorage.setItem("countdownEndTime", endTime.toString());
+    return Math.floor((endTime - Date.now()) / 1000);
+  });
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(() => {
+        const endTime = parseInt(localStorage.getItem("countdownEndTime"));
+        const diff = Math.floor((endTime - Date.now()) / 1000);
+        if (diff <= 0) {
+          clearInterval(interval);
+          return 0;
+        }
+        return diff;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const hours = Math.floor(timeLeft / 3600);
+  const minutes = Math.floor((timeLeft % 3600) / 60);
+  const seconds = timeLeft % 60;
+
+  return (
+    <div className="flex w-full justify-center gap-9 text-[30px] sm:text-[40px] md:text-[60px] 3xl:text-[90px] font-bold">
+      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+        <p>{String(hours).padStart(2, "0")}</p>
+        <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Hora</p>
+      </div>
+      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+        <p>{String(minutes).padStart(2, "0")}</p>
+        <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Minutos</p>
+      </div>
+      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+        <p>{String(seconds).padStart(2, "0")}</p>
+        <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Segundos</p>
+      </div>
+    </div>
+  );
+};
 
 const LandinPage = () => {
   return (
@@ -45,20 +88,7 @@ const LandinPage = () => {
 
             <div className="absolute top-[470px] mn:top-[510px] sm:top-[800px] md:top-[900px] xl:top-[1100px] 1xl:top-[1430px] ">
 
-              <div className="flex w-full justify-center gap-9 text-[30px] sm:text-[40px] md:text-[60px] 3xl:text-[90px] font-bold">
-                <div className="flex flex-col items-center  w-[50px] mn:w-[120px]">
-                  <p >00</p>
-                  <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Hora</p>
-                </div>
-                <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
-                  <p >00</p>
-                  <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Minutos</p>
-                </div>
-                <div className="flex flex-col items-center  w-[50px] mn:w-[120px]">
-                  <p >00</p>
-                  <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Segundos</p>
-                </div>
-              </div>
+              <CountdownTimer duration={3 * 60 * 60} />
 
               <p className="text-[9px] sm:text-[13px] md:text-[15px] xl:text-[21px] 3xl:text-[25px] mt-5 xl:mt-14 italic px-3 text-center">“No sabía por dónde empezar. Con la Biblia del Tesista avancé más en una semana que en tres meses.”
                 — Camila R.</p>
@@ -216,20 +246,7 @@ const LandinPage = () => {
                       >
                         La oferta termina en...
                       </h2>
-                      <div className="flex w-full justify-center gap-9 text-[30px] sm:text-[40px] md:text-[60px] xl:text-[85px] font-bold">
-                        <div className="flex flex-col items-center w-[120px] ">
-                          <p >00</p>
-                          <p className="text-[10px] sm:text-[15px] md:text-[20px] xl:text-[25px] font-normal text-center">Hora</p>
-                        </div>
-                        <div className="flex flex-col items-center w-[120px] ">
-                          <p >00</p>
-                          <p className="text-[10px] sm:text-[15px] md:text-[20px] xl:text-[25px] font-normal text-center">Minutos</p>
-                        </div>
-                        <div className="flex flex-col items-center  w-[120px] ">
-                          <p >00</p>
-                          <p className="text-[10px] sm:text-[15px] md:text-[20px] xl:text-[25px] font-normal text-center">Segundos</p>
-                        </div>
-                      </div>
+                      <CountdownTimer duration={3 * 60 * 60} />
                       <p className="font-medium text-center sm:text-[17px] md:text-[20px] mt-10 xl:mt-1 xl:text-[27px] ">Por sólo <spam className="text-[#FCB400]">$30</spam> , accede al ebook digital que te da claridad, estructura y acompañamiento real en tu tesis.</p>
 
                     </div>
