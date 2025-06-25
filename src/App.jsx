@@ -1,5 +1,5 @@
-import { Route, Router, Routes } from "react-router-dom";
-import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
 import NotFound from "./pages/NotFound";
 import spinner from "./assets/icons/spinner.svg";
 import ReactPixel from 'react-facebook-pixel';
@@ -36,6 +36,21 @@ ReactPixel.init('993020102671178', options);
 ReactPixel.pageView(); 
 
 export const App = () => {
+  useEffect(() => {
+    fetch("https://backendalejandria.onrender.com/api/pageView/add", {
+      method: "POST"
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error en la petición");
+      }
+      console.log("Alejandria Centro de Investigaciones");
+    })
+    .catch(error => {
+      console.error("Error al enviar la IP:", error);
+    });
+  }, []);
+
   return (
     <Suspense
       fallback={
@@ -50,27 +65,18 @@ export const App = () => {
     >
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/libro-de-reclamaciones"
-          element={<LibroReclamasiones />}
-        />
+        <Route path="/libro-de-reclamaciones" element={<LibroReclamasiones />} />
         <Route path="/nosotros" element={<Nosotros />} />
-        <Route path ="/promociones" element={<Promociones/>}/>
-        <Route path="/biblia-tesista" element={<LandinPage/>}/>
+        <Route path="/promociones" element={<Promociones />} />
+        <Route path="/biblia-tesista" element={<LandinPage />} />
         <Route path="/centro-recursos" element={<Centro />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/tesis" element={<Tesis />} />
         <Route path="/tsp" element={<Tsp />} />
         <Route path="/articulo-cientifico" element={<ArticuloCientifico />} />
         <Route path="/plan-negocio" element={<PlanNegocio />} />
-        <Route
-          path="/blog/metodologia-investigacion"
-          element={<MetodologiaInvestigacion />}
-        />
-        <Route
-          path="/blog/revistas-depredadoras"
-          element={<RevistasDepredadoras />}
-        />
+        <Route path="/blog/metodologia-investigacion" element={<MetodologiaInvestigacion />} />
+        <Route path="/blog/revistas-depredadoras" element={<RevistasDepredadoras />} />
         <Route path="/blog/tesis" element={<BlogTesis />} />
         <Route path="/blog/Articulo" element={<BlogArticulo />} />
         <Route path="*" element={<NotFound />} />

@@ -14,7 +14,6 @@ import image_10 from "../assets/images/centro-recursos/image_10.webp";
 import image_11 from "../assets/images/centro-recursos/image_11.webp";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
 import Marquee from "react-fast-marquee";
 
 const Centro = () => {
@@ -33,11 +32,17 @@ const Centro = () => {
 
   const [dialog, setDialog] = useState(false);
   const [formInputs, setFormInputs] = useState({
-    nombre: "",
+    nombres: "",
+    apellidos: "",
     servicio: "",
     carrera: "",
     universidad: "",
+    telefono: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (event) => {
     setFormInputs((lastValues) => ({
@@ -46,25 +51,78 @@ const Centro = () => {
     }));
   };
 
-  const handleForm = (event) => {
+  const handleForm = async (event) => {
     event.preventDefault();
+    
+    // Validación de campos requeridos
     if (
       [
-        formInputs.nombre.trim(),
-        formInputs.servicio.trim(),
+        formInputs.nombres.trim(),
+        formInputs.apellidos.trim(),
         formInputs.carrera.trim(),
         formInputs.universidad.trim(),
+        formInputs.telefono.trim(),
       ].some((field) => field === "")
     ) {
-      alert("Ingrese todos los campos");
+      alert("Por favor complete todos los campos obligatorios");
       return;
     }
 
-    let mensaje = `Hola soy *${formInputs.nombre}*, soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}*  y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
-    const numero = "51989575820";
+    setIsSubmitting(true);
+    setSubmitError("");
+    
+    try {
+      const response = await fetch("https://backendalejandria.onrender.com/api/form/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombres: formInputs.nombres,
+          apellidos: formInputs.apellidos,
+          servicio: formInputs.servicio || "", // Opcional
+          carrera: formInputs.carrera,
+          universidad: formInputs.universidad,
+          telefono: formInputs.telefono,
+          url: "https://alejandriaconsultora.com/centro-recursos"
+        }),
+      });
 
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
+      if (!response.ok) {
+        throw new Error("Error al enviar el formulario");
+      }
+
+      const data = await response.json();
+      setSubmitSuccess(true);
+      
+      // Mostrar mensaje de éxito por 2 segundos
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        
+        // Redirigir a WhatsApp después de que desaparezca el mensaje
+        let mensaje = `Hola soy *${formInputs.nombres}* *${formInputs.apellidos}* , soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo información sobre los recursos disponibles.`;
+        const numero = "51989575820";
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank");
+
+        // Resetear el formulario
+        setFormInputs({
+          nombres: "",
+          apellidos: "",
+          servicio: "",
+          carrera: "",
+          universidad: "",
+          telefono: "",
+        });
+
+      }, 2000);
+
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitError("Ocurrió un error al enviar el formulario. Por favor intente nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleModal = () => {
@@ -102,27 +160,38 @@ const Centro = () => {
               <input
                 className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold focus:placeholder:opacity-0 input_gradient"
                 type="text"
-                name="nombre"
+                name="nombres"
                 required
-                id="nombre"
-                placeholder="Nombre"
+                id="nombres"
+                placeholder="Nombres"
+                value={formInputs.nombres}
+                onChange={handleChange}
+              />
+              <input
+                className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold focus:placeholder:opacity-0 input_gradient"
+                type="text"
+                name="apellidos"
+                required
+                id="apellidos"
+                placeholder="Apellidos"
+                value={formInputs.apellidos}
                 onChange={handleChange}
               />
               <select
-                name="option_service"
+                name="servicio"
                 id="servicio"
                 className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold font-bold input_gradient"
-                defaultValue=""
-                required
+                value={formInputs.servicio}
                 onChange={handleChange}
               >
-                <option value="" disabled defaultValue>
-                  Selecciona un servico
+                <option value="" disabled>
+                  Selecciona un servicio (opcional)
                 </option>
                 <option value="Tesis">Tesis</option>
                 <option value="TSP">TSP</option>
                 <option value="Artículo académico">Artículo académico</option>
                 <option value="Plan de negocio">Plan de negocio</option>
+                <option value="Asesoría académica">Asesoría académica</option>
               </select>
               <input
                 className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold input_gradient"
@@ -130,7 +199,8 @@ const Centro = () => {
                 required={true}
                 name="carrera"
                 id="carrera"
-                placeholder="Carreras"
+                placeholder="Carrera"
+                value={formInputs.carrera}
                 onChange={handleChange}
               />
               <input
@@ -140,20 +210,34 @@ const Centro = () => {
                 name="universidad"
                 id="universidad"
                 placeholder="Universidad"
+                value={formInputs.universidad}
                 onChange={handleChange}
               />
               <input
                 className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold input_gradient"
-                type="text"
+                type="tel"
                 required={true}
-                placeholder="Whatsapp "
+                placeholder="Teléfono"
+                id="telefono"
+                name="telefono"
+                value={formInputs.telefono}
+                onChange={handleChange}
               />
               <button
                 type="submit"
-                className="block w-full py-3 bg-[#0CB2D5] text-white font-bold text-[22px] rounded-full"
+                disabled={isSubmitting}
+                className="block w-full py-3 bg-[#0CB2D5] text-white font-bold text-[22px] rounded-full disabled:opacity-50"
               >
-                ¡Da el primer paso!
+                {isSubmitting ? "Enviando..." : "¡Da el primer paso!"}
               </button>
+              {submitError && (
+                <p className="text-red-500 text-center">{submitError}</p>
+              )}
+              {submitSuccess && (
+                <p className="text-green-500 text-center animate-pulse">
+                  ¡Formulario enviado con éxito!
+                </p>
+              )}
             </form>
           </div>
           <div
@@ -171,73 +255,9 @@ const Centro = () => {
           </div>
         </section>
 
+        {/* Resto del código permanece igual */}
         <section className=" linear_centro_01 py-[0.1px]">
-          <section className="block 1xl:hidden pt-[200px] sm:pt-[267px] lg:pt-[244px]">
-            <div className="w-[95%] mn:w-[338px] sm:w-[520px] lg:w-[740px] mx-auto">
-              <form
-                data-aos="zoom-in"
-                data-aos-duration="700"
-                onSubmit={handleForm}
-                className="w-full space-y-6"
-              >
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  required
-                  placeholder="Nombre"
-                  onChange={handleChange}
-                />
-                <select
-                  name="option_service"
-                  id="servicio"
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  defaultValue=""
-                  required
-                  onChange={handleChange}
-                >
-                  <option value="" disabled defaultValue>
-                    Selecciona un servico
-                  </option>
-                  <option value="Tesis">Tesis</option>
-                  <option value="TSP">TSP</option>
-                  <option value="Artículo académico">Artículo académico</option>
-                  <option value="Plan de negocio">Plan de negocio</option>
-                </select>
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="carrera"
-                  id="carrera"
-                  required
-                  placeholder="carreras"
-                  onChange={handleChange}
-                />
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="universidad"
-                  id="universidad"
-                  required
-                  placeholder="universidad"
-                  onChange={handleChange}
-                />
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  required
-                  placeholder="Whatsapp "
-                />
-                <button
-                  type="submit"
-                  className="block w-full py-3 bg-[#0CB2D5] text-white font-bold mn:text-[22px] rounded-full"
-                >
-                  ¡Da el primer paso!
-                </button>
-              </form>
-            </div>
-          </section>
+          
 
           <div className="mn:ml-[18px] sm:ml-[40px] lg:ml-[80px] space-y-[200px] mt-[200px] sm:mt-[268px] lg:mt-[250px] 4xl:mt-[360px]">
             <div
@@ -332,7 +352,6 @@ const Centro = () => {
                 src="https://www.youtube.com/embed/gmhxmET7mnY"
                 title="¿Y TÚ QUE ESPERAS PARA TRIUNFAR?🏆📈"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                // referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
             </div>

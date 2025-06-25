@@ -5,7 +5,6 @@ import CarouselMarquee from "../components/CarouselMarquee";
 // IMAGENES Y ICONOS
 import hexagon from "../assets/icons/hexagon.png";
 import star from "../assets/icons/star.svg";
-import comillas from "../assets/icons/comillas.png";
 import capa_03 from "../assets/icons/capa_03.png";
 import icono_contacto_01 from "../assets/icons/icono-contacto_01.svg";
 import icono_contacto_02 from "../assets/icons/icono-contacto_02.svg";
@@ -24,11 +23,17 @@ const Home = () => {
   }, []);
 
   const [formInputs, setFormInputs] = useState({
-    nombre: "",
+    nombres: "",
+    apellidos: "",
     servicio: "",
     carrera: "",
     universidad: "",
+    telefono: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (event) => {
     setFormInputs((lastValues) => ({
@@ -37,25 +42,74 @@ const Home = () => {
     }));
   };
 
-  const handleForm = (event) => {
+  const handleForm = async (event) => {
     event.preventDefault();
+
+    // Validar campos requeridos
     if (
       [
-        formInputs.nombre.trim(),
+        formInputs.nombres.trim(),
+        formInputs.apellidos.trim(),
         formInputs.servicio.trim(),
         formInputs.carrera.trim(),
         formInputs.universidad.trim(),
+        formInputs.telefono.trim(),
       ].some((field) => field === "")
     ) {
-      alert("Ingrese todos los campos");
+      alert("Por favor complete todos los campos");
       return;
     }
 
-    let mensaje = `Hola soy *${formInputs.nombre}*, soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}*  y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
-    const numero = "51989575820";
+    setIsSubmitting(true);
+    setSubmitError("");
 
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
+    try {
+      const response = await fetch("https://backendalejandria.onrender.com/api/form/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formInputs,
+          url: "https://alejandriaconsultora.com"
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Respuesta de la API:", data);
+      setSubmitSuccess(true);
+
+      // Mostrar mensaje de éxito por 2 segundos
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        
+        // Redirigir a WhatsApp después de que desaparezca el mensaje
+        let mensaje = `Hola soy *${formInputs.nombres}* *${formInputs.apellidos}* , soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
+        const numero = "51989575820";
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank");
+
+        // Resetear el formulario
+        setFormInputs({
+          nombres: "",
+          apellidos: "",
+          servicio: "",
+          carrera: "",
+          universidad: "",
+          telefono: "",
+        });
+      }, 2000);
+
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      setSubmitError("Ocurrió un error al enviar el formulario. Por favor intente nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,22 +135,35 @@ const Home = () => {
                 className="block w-full border px-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold input_gradient 1xl:h-[60px] 4xl:h-[70px]"
                 type="text"
                 required={true}
-                name="nombre"
-                id="nombre"
-                placeholder="Nombre"
+                name="nombres"
+                id="nombres"
+                placeholder="Nombres"
+                value={formInputs.nombres}
                 onChange={handleChange}
               />
+              <input
+                className="block w-full border px-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold input_gradient 1xl:h-[60px] 4xl:h-[70px]"
+                type="text"
+                required={true}
+                name="apellidos"
+                id="apellidos"
+                placeholder="Apellidos"
+                value={formInputs.apellidos}
+                onChange={handleChange}
+              />
+
               <select
-                name="option_service"
+                name="servicio"
                 id="servicio"
                 className="block w-full border p-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold font-bold input_gradient 1xl:h-[60px] 4xl:h-[70px]"
-                defaultValue=""
+                value={formInputs.servicio}
                 required
                 onChange={handleChange}
               >
-                <option value="" disabled defaultValue>
-                  Selecciona un servico
+                <option value="" disabled>
+                  Selecciona un servicio
                 </option>
+                <option value="Asesoría académica">Asesoría académica</option>
                 <option value="Tesis">Tesis</option>
                 <option value="TSP">TSP</option>
                 <option value="Artículo académico">Artículo académico</option>
@@ -108,7 +175,8 @@ const Home = () => {
                 name="carrera"
                 required={true}
                 id="carrera"
-                placeholder="Carreras"
+                placeholder="Carrera"
+                value={formInputs.carrera}
                 onChange={handleChange}
               />
               <input
@@ -118,19 +186,38 @@ const Home = () => {
                 required={true}
                 id="universidad"
                 placeholder="Universidad"
+                value={formInputs.universidad}
                 onChange={handleChange}
               />
               <input
                 className="block w-full border px-4 border-gray-300 outline-none rounded-xl placeholder:text-black placeholder:font-bold input_gradient 1xl:h-[60px] 4xl:h-[70px]"
                 type="text"
                 required={true}
-                placeholder="Whatsapp "
+                placeholder="Teléfono / Whatsapp"
+                id="telefono"
+                name="telefono"
+                value={formInputs.telefono}
+                onChange={handleChange}
               />
+
+              {submitSuccess && (
+                <div className="text-green-600 font-bold text-center animate-pulse">
+                  ¡Formulario enviado con éxito!
+                </div>
+              )}
+
+              {submitError && (
+                <div className="text-red-600 font-bold text-center">
+                  {submitError}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="block w-full py-3 bg-[#0CB2D5] uppercase text-white font-bold 4xl:text-[22px] rounded-[50px] mt-[30px]"
+                disabled={isSubmitting}
+                className={`block w-full py-3 bg-[#0CB2D5] uppercase text-white font-bold 4xl:text-[22px] rounded-[50px] mt-[30px] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
               >
-                ¡Da el primer paso!
+                {isSubmitting ? "Enviando..." : "¡Da el primer paso!"}
               </button>
             </form>
           </div>
@@ -148,75 +235,7 @@ const Home = () => {
         </section>
 
         <div className="gradient pt-20">
-          {/*  */}
-          <section className="block 1xl:hidden">
-            <div className="w-[90%] mn:w-[338px] sm:w-[520px] lg:w-[740px] mx-auto">
-              <form
-                data-aos="zoom-in"
-                data-aos-duration="700"
-                onSubmit={handleForm}
-                className="w-full space-y-6"
-              >
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  required
-                  placeholder="Nombre"
-                  onChange={handleChange}
-                />
-                <select
-                  name="option_service"
-                  id="servicio"
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  defaultValue=""
-                  required
-                  onChange={handleChange}
-                >
-                  <option value="" disabled defaultValue>
-                    Selecciona un servico
-                  </option>
-                  <option value="Tesis">Tesis</option>
-                  <option value="TSP">TSP</option>
-                  <option value="Artículo académico">Artículo académico</option>
-                  <option value="Plan de negocio">Plan de negocio</option>
-                </select>
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="carrera"
-                  id="carrera"
-                  required
-                  placeholder="carreras"
-                  onChange={handleChange}
-                />
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  name="universidad"
-                  id="universidad"
-                  required
-                  placeholder="universidad"
-                  onChange={handleChange}
-                />
-                <input
-                  className="block w-full border sm:p-4 px-4 border-gray-300 outline-none placeholder:text-black placeholder:font-bold font-bold input_gradient h-[40px] sm:h-[60px] lg:h-[60px] text-[13px] lg:text-base"
-                  type="text"
-                  required
-                  placeholder="Whatsapp "
-                />
-                <button
-                  type="submit"
-                  className="block w-full py-3 bg-[#0CB2D5] text-white font-bold text-[14px] sm:text-[20px] lg:text-[22px] rounded-full"
-                >
-                  ¡Da el primer paso!
-                </button>
-              </form>
-            </div>
-          </section>
-          {/*  */}
-
+      
           <div className="w-[90%] sm:w-[520px] lg:w-[740px] 1xl:w-[1210px] 4xl:w-[1522px] flex flex-col gap-y-[60px] 1xl:flex-row justify-between 2xl:h-[626px] mx-auto relative ml-[18px] sm:ml-[40px] lg:ml-[80px]">
             <div
               data-aos="fade-down"
@@ -527,7 +546,7 @@ const Home = () => {
                         <span>989</span>
                         <span>575</span>
                         <span>820</span>
-                        
+
                       </div>
                     </div>
                   </div>
