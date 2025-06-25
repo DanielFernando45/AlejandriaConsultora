@@ -43,15 +43,15 @@ const CountdownTimer = ({ duration }) => {
       data-aos-offset="200"
       className="flex w-full justify-center gap-9 text-[30px] sm:text-[40px] md:text-[60px] 3xl:text-[90px] font-bold"
     >
-      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+      <div className="flex flex-col items-center w-[50px] sm:w-[120px]">
         <p>{String(hours).padStart(2, "0")}</p>
         <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Hora</p>
       </div>
-      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+      <div className="flex flex-col items-center w-[50px] sm:w-[120px]">
         <p>{String(minutes).padStart(2, "0")}</p>
         <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Minutos</p>
       </div>
-      <div className="flex flex-col items-center w-[50px] mn:w-[120px]">
+      <div className="flex flex-col items-center w-[50px] sm:w-[120px]">
         <p>{String(seconds).padStart(2, "0")}</p>
         <p className="text-[10px] sm:text-[15px] md:text-[20px] 3xl:text-[25px] font-normal text-center">Segundos</p>
       </div>
@@ -346,7 +346,7 @@ const LandinPage = () => {
                       <img 
                         data-aos="zoom-out"
                         data-aos-offset="100"
-                        className="w-[200px] sm:w-[300px]" 
+                        className="w-[150px] sm:w-[300px] mt-[60px]" 
                         src={hotmart2} 
                         alt="" 
                       />

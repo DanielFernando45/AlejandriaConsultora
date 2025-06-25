@@ -68,24 +68,6 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div className="text-white space-y-[20px]">
-              <h3 className="uppercase text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[20px] font-semibold">
-                Sede Chiclayo
-              </h3>
-              <div className="flex gap-x-[20px]">
-                <figure className="w-[22px] h-[26.83px]">
-                  <img
-                    src={icono_contacto_03}
-                    className="w-full h-full"
-                    alt="icono-ubicacion"
-                  />
-                </figure>
-                <p className="text-[14px] xl:text-[20px] leading-[24.38px] font-semibold">
-                  C. Torres Paz N° 280, Ofic. 206 2° piso - Edificio Consorcio
-                  Romero
-                </p>
-              </div>
-            </div>
           </div>
         </div>
         {/* COL 2 */}
