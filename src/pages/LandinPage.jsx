@@ -9,24 +9,28 @@ import hotmart2 from "../assets/images/tesistaBible/hotmart2.png";
 import oferta from "../assets/images/tesistaBible/descPromo.png";
 import capa_04 from "../assets/images/capa_04.png";
 
-const CountdownTimer = ({ duration }) => {
+const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(() => {
-    const saved = localStorage.getItem("countdownEndTime");
-    const endTime = saved ? parseInt(saved) : Date.now() + duration * 1000;
-    localStorage.setItem("countdownEndTime", endTime.toString());
-    return Math.floor((endTime - Date.now()) / 1000);
+    // Calculamos el tiempo restante basado en el tiempo actual y el ciclo de 3 horas
+    const now = Date.now();
+    const cycleDuration = 3 * 60 * 60 * 1000; // 3 horas en milisegundos
+    const cycleStart = Math.floor(now / cycleDuration) * cycleDuration;
+    const endTime = cycleStart + cycleDuration;
+    return Math.floor((endTime - now) / 1000);
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(() => {
-        const endTime = parseInt(localStorage.getItem("countdownEndTime"));
-        const diff = Math.floor((endTime - Date.now()) / 1000);
-        if (diff <= 0) {
-          clearInterval(interval);
-          return 0;
+      setTimeLeft(prevTime => {
+        if (prevTime <= 0) {
+          // Cuando llega a cero, calculamos el próximo ciclo de 3 horas
+          const now = Date.now();
+          const cycleDuration = 3 * 60 * 60 * 1000;
+          const cycleStart = Math.floor(now / cycleDuration) * cycleDuration;
+          const endTime = cycleStart + cycleDuration;
+          return Math.floor((endTime - now) / 1000);
         }
-        return diff;
+        return prevTime - 1;
       });
     }, 1000);
 
