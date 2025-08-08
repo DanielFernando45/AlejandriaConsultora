@@ -96,15 +96,17 @@ const LandinPage = () => {
                w-[250px] mn:w-[290px] sm:w-[480px] md:w-[650px] xl:w-[900px] 1xl:w-[1250px] h-[140px] mn:h-[180px] sm:h-[320px] md:h-[390px]
                 xl:h-[520px] 1xl:h-[690px]"
             >
+             
               <iframe
-                className="absolute w-full h-full"
-                src="https://www.youtube.com/embed/JQ3LW5jwjJA"
-                title="La guía que te salva del bloqueo con tu tesis"
+                 className="absolute w-full h-full"
+                src="https://www.youtube.com/embed/GwmBj30rpds"
+                title="¡SUPERA TU BLOQUEO DE TESIS! 🎓💪"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
-              </iframe>
+
+                </iframe>
             </div>
 
             <div className="absolute top-[400px] mn:top-[440px] sm:top-[700px] md:top-[800px] xl:top-[970px] 1xl:top-[1300px] w-full px-3">
@@ -295,11 +297,11 @@ const LandinPage = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col px-5 gap-5 sm:gap-14 xl:px-10 mt-28 mb-10 ">
+              <div className="flex flex-col px-5 gap-5 sm:gap-14 xl:gap-32 xl:px-10 mt-60 mb-28 ">
 
                 <h2 data-aos="fade-up"
-                    data-aos-offset="150"
-                 className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold text-center ">
+                  data-aos-offset="150"
+                  className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold text-center ">
                   Y si compras <spam className="text-[#FCB400]">hoy mismo</spam> La Biblia del Tesista
                   recibes 7 <spam className="text-[#FCB400]">regalos</spam> digitales:
                 </h2>
