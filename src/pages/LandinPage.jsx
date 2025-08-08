@@ -8,6 +8,7 @@ import garantia from "../assets/images/tesistaBible/GarantiaDorado.png";
 import hotmart2 from "../assets/images/tesistaBible/hotmart2.png";
 import oferta from "../assets/images/tesistaBible/descPromo.png";
 import capa_04 from "../assets/images/capa_04.png";
+import dorado from "../assets/images/tesistaBible/RegaloDorado.png";
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(() => {
@@ -42,7 +43,7 @@ const CountdownTimer = () => {
   const seconds = timeLeft % 60;
 
   return (
-    <div 
+    <div
       data-aos="zoom-in"
       data-aos-offset="200"
       className="flex w-full justify-center gap-9 text-[30px] sm:text-[40px] md:text-[60px] 3xl:text-[90px] font-bold"
@@ -69,7 +70,7 @@ const LandinPage = () => {
       <main className="overflow-hidden ">
         <section className='h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative'>
           <div className="bg-[#1C1C34]  text-white   z-10 h-full w-full flex justify-center  ">
-            <div 
+            <div
               data-aos="fade-down"
               data-aos-offset="300"
               className="text-center  absolute top-32 mn:top-40 sm:top-52 px-7 3xl:w-[1400px]"
@@ -80,7 +81,7 @@ const LandinPage = () => {
               <p className="text-[9px] uppercase mb-[20px] sm:text-[22px] lg:text-[28px] xl:text-[32px] 1xl:text-[39px]  font-semibold italic">
                 Contamos con +5000 aprobados en 11 años de experiencia
               </p>
-              <p 
+              <p
                 data-aos="fade-right"
                 data-aos-offset="250"
                 className="text-[9px] sm:text-[13px] md:text-[15px] xl:text-[21px] 3xl:text-[25px]"
@@ -88,7 +89,7 @@ const LandinPage = () => {
                 📌<span className="font-semibold">Mira este video hasta el final</span>  y descubre los recursos que ofrecemos para ayudarte en tu tesis
               </p>
             </div>
-            <div 
+            <div
               data-aos="flip-up"
               data-aos-offset="200"
               className="relative   top-[220px] mn:top-[240px] sm:top-[350px] lg:top-[370px] xl:top-[380px] 1xl:top-[500px]
@@ -117,14 +118,14 @@ const LandinPage = () => {
               </button>
             </div>
 
-            <div 
+            <div
               data-aos="fade-up"
               data-aos-offset="200"
               className="absolute top-[470px] mn:top-[510px] sm:top-[800px] md:top-[900px] xl:top-[1100px] 1xl:top-[1430px]"
             >
               <CountdownTimer duration={3 * 60 * 60} />
 
-              <p 
+              <p
                 data-aos="fade-left"
                 data-aos-offset="150"
                 className="text-[9px] sm:text-[13px] md:text-[15px] xl:text-[21px] 3xl:text-[25px] mt-5 xl:mt-14 italic px-3 text-center"
@@ -138,12 +139,12 @@ const LandinPage = () => {
 
         <section>
           <div className="bg-[#1C1C34] pt-[93px] mn:pt-[133px] sm:pt-[440px] md:pt-[300px] xl:pt-[600px]">
-            <div 
+            <div
               data-aos="fade-up"
               data-aos-offset="200"
               className="mb-20 w-[98%] mn:w-[339px] h-[373px] sm:w-[520px] md:w-full md:px-10  lg:w-[880px] xl:w-[1250px] 1xl:w-[1241px] 3xl:w-[1569px] sm:h-[563px] lg:h-[600px] 1xl:h-[402px] 4xl:h-[444px] 1xl:items-center flex flex-col  mx-auto  1xl:gap-x-[50px] gap-y-[20px]"
             >
-              <p 
+              <p
                 data-aos="zoom-in"
                 data-aos-offset="150"
                 className="text-white font-semibold text-[14px] sm:text-[30px] lg:text-[38px] xl:text-[45px] 3xl:text-[50px] text-center"
@@ -152,18 +153,18 @@ const LandinPage = () => {
               </p>
 
               <div className="flex flex-col text-white gap-5 xl:flex-row">
-                <div 
+                <div
                   data-aos="fade-right"
                   data-aos-offset="250"
                   className="w-full flex justify-center"
                 >
-                  <img 
+                  <img
                     className="w-[200px] mn:w-[220px] sm:w-[400px] md:w-[450px] 3xl:w-[600px] h-[250px]  mn:h-[270px] sm:h-[500px] md:h-[600px] 3xl:h-[800px]"
-                    src={tesis} 
+                    src={tesis}
                     alt=""
                   />
                 </div>
-                <div 
+                <div
                   data-aos="fade-left"
                   data-aos-offset="250"
                   className="flex flex-col lg:gap-10 lg:justify-center"
@@ -179,7 +180,7 @@ const LandinPage = () => {
                       <p className="textfinal">- Estrategias para elegir el tema, redactar sin bloqueo y organizar tus ideas</p>
                     </div>
                   </div>
-                  <div 
+                  <div
                     data-aos="zoom-out"
                     data-aos-offset="200"
                     className="flex items-center justify-center relative w-[200px] sm:w-[400px]  1xl:w-auto 1xl:h-auto mx-auto 1xl:mx-0]"
@@ -201,7 +202,7 @@ const LandinPage = () => {
                 </div>
               </div>
 
-              <div 
+              <div
                 data-aos="fade-up"
                 data-aos-offset="200"
                 className="flex flex-col text-white px-5  font-medium sm:text-[16px] md:text-[20px] xl:flex-row xl:items-end xl:text-[25px] "
@@ -240,7 +241,7 @@ const LandinPage = () => {
                   ¿Qué ganas con este libro digital?
                 </h3>
 
-                <div 
+                <div
                   data-aos="fade-up"
                   data-aos-offset="150"
                   className="font-bold px-10   sm:text-[16px] md:text-[20px] xl:text-[28px] md:px-16 xl:px-20 1xl:px-44"
@@ -270,21 +271,21 @@ const LandinPage = () => {
                 </p>
 
                 <div className="flex flex-col items-center justify-center mx-5 mt-5 xl:mt-20 gap-4 xl:flex-row">
-                  <div 
+                  <div
                     data-aos="fade-right"
                     data-aos-offset="200"
                     className="testi p-2  sm:w-[456px]"
                   >
                     <img className="rounded-[20px]" src={testimonioOne} alt="" />
                   </div>
-                  <div 
+                  <div
                     data-aos="fade-up"
                     data-aos-offset="200"
                     className="testi p-2 flex justify-center sm:w-[456px] "
                   >
                     <img className="rounded-[20px]" src={testimonioTwo} alt="" />
                   </div>
-                  <div 
+                  <div
                     data-aos="fade-left"
                     data-aos-offset="200"
                     className="testi p-2"
@@ -294,24 +295,94 @@ const LandinPage = () => {
                 </div>
               </div>
 
-              <div 
+              <div className="flex flex-col px-5 gap-5 sm:gap-14 xl:px-10 mt-28 mb-10 ">
+
+                <h2 data-aos="fade-up"
+                    data-aos-offset="150"
+                 className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold text-center ">
+                  Y si compras <spam className="text-[#FCB400]">hoy mismo</spam> La Biblia del Tesista
+                  recibes 7 <spam className="text-[#FCB400]">regalos</spam> digitales:
+                </h2>
+
+                <div className="flex flex-col gap-4 sm:gap-7 mn:px-4 md:px-10 xl:px-28 xl:gap-12 3xl:gap-14">
+
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 xl:gap-7 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Pack de Fuentes Confiables</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Encuentra artículos y libros válidos para tu marco teórico sin perder tiempo.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Guía Anti-Errores Fatales</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Evita los fallos que hacen fracasar la mayoría de proyectos de tesis.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Plantilla Pro de Formulación Administrativa</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Redacta presupuesto, cronograma y justificación con claridad profesional.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Mini Curso: Proyecto de Tesis desde Cero</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Estructura tu proyecto con pasos simples y ejemplos reales.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Fórmula del Título en 7 Días</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Aprende a formular un buen título sin dudar durante semanas.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Guía Rápida para tu Defensa Final</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Consejos prácticos para dominar tu exposición y evitar nervios.</p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
+                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
+                    <div className="flex flex-col">
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[19px] lg:text-[23px] xl:text-[31px] 1xl:text-[36px] 3xl:text-[40px] 5xl:text-[45px] font-bold m-0 ">Kit Secreto del Jurado</h1>
+                      <p className="text-[9px] sm:text-[13px] md:text-[16px] lg:text-[19px] xl:text-[24px] 1xl:text-[28px] 3xl:text-[33px] 5xl:text-[40px] font-semibold">Balotario Exclusivo con las Preguntas Más Frecuentes en Sustentaciones.</p>
+                    </div>
+                  </div>
+                 
+
+                </div>
+
+
+              </div>
+
+
+
+              <div
                 data-aos="fade-up"
                 data-aos-offset="150"
                 className="flex flex-col mx-5 justify-center items-center sm:mt-32 xl:flex-row-reverse xl:px-32 "
               >
                 <div className="flex flex-col gap-4 xl:gap-8 text-center xl:text-start font-semibold sm:text-[17px] md:text-[20px] xl:text-[29px] mb-8 md:px-5">
-                  <h2 className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold "><spam className="text-[#FCB400]">Garantía </spam>
+                  <h2 className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold ">
+                    <spam className="text-[#FCB400]">Garantía </spam>
                     de satisfacción 7 días
                   </h2>
                   <p className="">Si el producto no te ayuda como prometemos, te devolvemos el 100% de tu dinero.</p>
                   <p className="">Sin preguntas. Sin letra chica.</p>
                 </div>
-                <img 
+                <img
                   data-aos="zoom-in"
                   data-aos-offset="100"
-                  className="w-[200px] xl:w-[300px]" 
-                  src={garantia} 
-                  alt="" 
+                  className="w-[200px] xl:w-[300px]"
+                  src={garantia}
+                  alt=""
                 />
               </div>
             </div>
@@ -321,7 +392,7 @@ const LandinPage = () => {
                 <div>..</div>
                 <div className="mb-[80px] text-white font-bold  space-y-10 w-[95%] mn:w-[340px] sm:w-[495px] md:w-[600px] lg:w-[720px] xl:w-[1200px] 1xl:w-[1300px]  5xl:w-[1500px] mx-auto mt-[50px] sm:mt-[100px] ">
                   <div className="xl:flex xl:mb-52">
-                    <div 
+                    <div
                       data-aos="fade-right"
                       data-aos-offset="200"
                       className="mb-5 xl:flex xl:flex-col xl:gap-20 xl:justify-end"
@@ -330,34 +401,34 @@ const LandinPage = () => {
                         La oferta termina en...
                       </h2>
                       <CountdownTimer duration={3 * 60 * 60} />
-                      <p className="font-medium text-center sm:text-[17px] md:text-[20px] mt-10 xl:mt-1 xl:text-[27px] ">Por sólo <spam className="text-[#FCB400]">$30</spam> , accede al ebook digital que te da claridad, estructura y acompañamiento real en tu tesis.</p>
+                      <p className="font-medium text-center sm:text-[17px] md:text-[20px] mt-10 xl:mt-1 xl:text-[27px] ">Por sólo <spam className="text-[#FCB400]">$9.99</spam> , accede al ebook digital que te da claridad, estructura y acompañamiento real en tu tesis.</p>
                     </div>
 
-                    <div 
+                    <div
                       data-aos="fade-left"
                       data-aos-offset="200"
                       className="flex flex-col  justify-center items-center xl:w-[1570px] "
                     >
                       <div className="fondo_promo w-full h-[180px] sm:h-[280px] md:h-[320px] lg:h-[380px] 4xl:h-[420px]  relative">
-                        <img 
+                        <img
                           data-aos="zoom-in"
                           data-aos-offset="100"
-                          className="absolute w-28 sm:w-36 top-0 right-0 xl:w-48" 
-                          src={oferta} 
-                          alt="" 
+                          className="absolute w-28 sm:w-36 top-0 right-0 xl:w-48"
+                          src={oferta}
+                          alt=""
                         />
                       </div>
-                      <img 
+                      <img
                         data-aos="zoom-out"
                         data-aos-offset="100"
-                        className="w-[150px] sm:w-[300px] mt-[60px]" 
-                        src={hotmart2} 
-                        alt="" 
+                        className="w-[150px] sm:w-[300px] mt-[60px]"
+                        src={hotmart2}
+                        alt=""
                       />
                     </div>
                   </div>
 
-                  <h1 
+                  <h1
                     data-aos="fade-up"
                     data-aos-offset="150"
                     className="text-[15px] sm:text-[20px] md:text-[23px] xl:text-[40px] 1xl:text-[45px] 5xl:text-[50px] text-center leading-[35px] xl:leading-[85px]"
