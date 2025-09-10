@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const LibroReclamasiones = () => {
   const { pathname } = useLocation();
   const [respuesta, setRespuesta] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,6 +26,7 @@ const LibroReclamasiones = () => {
     descripcion: "",
     detalle_reclamo: "",
     pedido_cliente: "",
+    fecha_reclamo: new Date().toISOString().split('T')[0] // Fecha actual por defecto
   });
 
   const handleChange = (event) => {
@@ -36,16 +38,20 @@ const LibroReclamasiones = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     try {
+      // Crear FormData en lugar de URLSearchParams
+      const formData = new FormData();
+      for (const key in values) {
+        formData.append(key, values[key]);
+      }
+
       const response = await fetch(
         "https://alejandriaconsultora.com/send_email.php",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(values).toString(),
+          body: formData, // Usar FormData directamente
         }
       );
 
@@ -54,14 +60,37 @@ const LibroReclamasiones = () => {
 
       if (data.status === "success") {
         alert("Correo enviado exitosamente");
+        // Opcional: resetear el formulario después de éxito
+        setValues({
+          nombres: "",
+          apellidos: "",
+          email: "",
+          tipo_documento: "dni",
+          numero_documento: "",
+          celular: "",
+          departamento: "",
+          provincia: "",
+          direccion: "",
+          tipo_queja: "queja",
+          relacionado: "producto",
+          descripcion: "",
+          detalle_reclamo: "",
+          pedido_cliente: "",
+          fecha_reclamo: new Date().toISOString().split('T')[0]
+        });
       } else {
         alert("Error al enviar el correo: " + data.message);
+        if (data.fields) {
+          console.error("Campos faltantes:", data.fields);
+        }
       }
     } catch (error) {
       console.error("Error en la solicitud:", error);
-      alert("Ocurrió un error inesperado al enviar el formulario");
+      alert("Ocurrió un error inesperado al enviar el formulario. Por favor, intente nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+      console.log(respuesta);
     }
-    console.log(respuesta);
   };
 
   return (
@@ -100,19 +129,20 @@ const LibroReclamasiones = () => {
               (*) Datos Obligados Artículo 5 D.S. 006-2014-PCM
             </p>
           </div>
-          {/*  */}
+          
           <div>
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
-                  <label htmlFor="nombre" className="font-medium">
-                    Nombres
+                  <label htmlFor="nombres" className="font-medium">
+                    Nombres *
                   </label>
                   <input
                     type="text"
                     name="nombres"
                     id="nombres"
                     required
+                    value={values.nombres}
                     onChange={handleChange}
                     placeholder="Nombre"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -120,13 +150,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="apellidos" className="font-medium">
-                    Apellidos
+                    Apellidos *
                   </label>
                   <input
                     type="text"
                     name="apellidos"
                     id="apellidos"
                     required
+                    value={values.apellidos}
                     onChange={handleChange}
                     placeholder="Apellidos"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -134,13 +165,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="email" className="font-medium">
-                    Email
+                    Email *
                   </label>
                   <input
                     type="email"
                     name="email"
                     id="email"
                     required
+                    value={values.email}
                     onChange={handleChange}
                     placeholder="Email"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -148,19 +180,17 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="tipo_documento" className="font-medium">
-                    Seleccionar Tipo de Documentos
+                    Seleccionar Tipo de Documentos *
                   </label>
                   <select
                     name="tipo_documento"
                     id="tipo_documento"
                     required
+                    value={values.tipo_documento}
                     onChange={handleChange}
                     className="block w-full p-2 border border-gray-400 rounded-md outline-none"
-                    defaultValue={"dni"}
                   >
-                    <option value="dni" defaultValue>
-                      DNI
-                    </option>
+                    <option value="dni">DNI</option>
                     <option value="ruc">RUC</option>
                     <option value="ce">CE</option>
                     <option value="pasaporte">Pasaporte</option>
@@ -168,13 +198,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="numero_documento" className="font-medium">
-                    Indicar Número Documento
+                    Indicar Número Documento *
                   </label>
                   <input
                     type="number"
                     name="numero_documento"
                     id="numero_documento"
                     required
+                    value={values.numero_documento}
                     onChange={handleChange}
                     placeholder="Indicar Número Documento"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -182,13 +213,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="celular" className="font-medium">
-                    Celular
+                    Celular *
                   </label>
                   <input
                     type="number"
                     name="celular"
                     id="celular"
                     required
+                    value={values.celular}
                     onChange={handleChange}
                     placeholder="Celular"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -196,13 +228,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="departamento" className="font-medium">
-                    Departamento
+                    Departamento *
                   </label>
                   <input
                     type="text"
                     name="departamento"
                     id="departamento"
                     required
+                    value={values.departamento}
                     onChange={handleChange}
                     placeholder="Departamento"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -210,13 +243,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="provincia" className="font-medium">
-                    Provincia
+                    Provincia *
                   </label>
                   <input
                     type="text"
                     name="provincia"
                     id="provincia"
                     required
+                    value={values.provincia}
                     onChange={handleChange}
                     placeholder="Provincia"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -224,13 +258,14 @@ const LibroReclamasiones = () => {
                 </div>
                 <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2 text-sm">
                   <label htmlFor="direccion" className="font-medium">
-                    Dirección
+                    Dirección *
                   </label>
                   <input
                     type="text"
                     name="direccion"
                     id="direccion"
                     required
+                    value={values.direccion}
                     onChange={handleChange}
                     placeholder="Dirección"
                     className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
@@ -247,14 +282,14 @@ const LibroReclamasiones = () => {
                   </div>
                   <div className="mn:col-span-full sm:col-span-6 space-y-2 text-sm">
                     <label htmlFor="tipo_queja" className="font-medium">
-                      Tipo
+                      Tipo *
                     </label>
                     <select
                       name="tipo_queja"
                       id="tipo_queja"
                       required
+                      value={values.tipo_queja}
                       onChange={handleChange}
-                      defaultValue="queja"
                       className="block w-full p-2 border border-gray-400 rounded-md outline-none"
                     >
                       <option value="queja">Queja</option>
@@ -266,37 +301,30 @@ const LibroReclamasiones = () => {
                       htmlFor="relacionado"
                       className="font-medium text-sm"
                     >
-                      Relacionado a:
+                      Relacionado a: *
                     </label>
                     <select
                       name="relacionado"
                       id="relacionado"
                       required
+                      value={values.relacionado}
                       onChange={handleChange}
-                      defaultValue={"producto"}
                       className="block w-full p-2 border border-gray-400 rounded-md outline-none"
                     >
-                      <option value="producto" defaultValue>
-                        Producto
-                      </option>
+                      <option value="producto">Producto</option>
                       <option value="servicio">Servicio</option>
                     </select>
                   </div>
                   <div className="col-span-12 sm:col-span-6 1xl:col-span-4 space-y-2">
-                    <label
-                      htmlFor="descripcion"
-                      required
-                      onChange={handleChange}
-                      className="block font-medium text-sm mb-9 lg:mb-0"
-                    >
-                      Descripción del producto o servicio:
+                    <label htmlFor="descripcion" className="block font-medium text-sm mb-9 lg:mb-0">
+                      Descripción del producto o servicio: *
                     </label>
                     <textarea
                       name="descripcion"
                       id="descripcion"
                       className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none text-sm"
-                      draggable="false"
                       required
+                      value={values.descripcion}
                       onChange={handleChange}
                       placeholder="Descripción del producto o servicio:"
                       rows="4"
@@ -307,14 +335,14 @@ const LibroReclamasiones = () => {
                       htmlFor="detalle_reclamo"
                       className="font-medium text-sm"
                     >
-                      Detalle del Reclamo / Queja, según indica el cliente:
+                      Detalle del Reclamo / Queja, según indica el cliente: *
                     </label>
                     <textarea
                       name="detalle_reclamo"
                       id="detalle_reclamo"
                       className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none text-sm"
-                      draggable="false"
                       required
+                      value={values.detalle_reclamo}
                       onChange={handleChange}
                       placeholder="Detalle del Reclamo / Queja, según indica el cliente:"
                       rows="4"
@@ -325,14 +353,14 @@ const LibroReclamasiones = () => {
                       htmlFor="pedido_cliente"
                       className="font-medium text-sm"
                     >
-                      Pedido del cliente:
+                      Pedido del cliente: *
                     </label>
                     <textarea
                       name="pedido_cliente"
                       id="pedido_cliente"
                       className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none text-sm"
-                      draggable="false"
                       required
+                      value={values.pedido_cliente}
                       onChange={handleChange}
                       placeholder="Pedido del cliente:"
                       rows="4"
@@ -340,26 +368,29 @@ const LibroReclamasiones = () => {
                   </div>
                   <div className="col-span-12 space-y-2 text-sm">
                     <label htmlFor="fecha_reclamo" className="font-medium">
-                      Fecha de reclamo / queja
+                      Fecha de reclamo / queja *
                     </label>
                     <input
                       type="date"
                       name="fecha_reclamo"
                       id="fecha_reclamo"
                       required
+                      value={values.fecha_reclamo}
                       onChange={handleChange}
-                      placeholder="Fecha de reclamo / queja"
                       className="w-full block placeholder:text-gray-400 border border-gray-400 rounded-md p-2 outline-none"
                     />
                   </div>
                 </div>
               </div>
-              <button className="block w-full text-center rounded-md py-2 bg-[#0CB2D5] text-white font-semibold mt-4">
-                Enviar
+              <button 
+                type="submit" 
+                className="block w-full text-center rounded-md py-2 bg-[#0CB2D5] text-white font-semibold mt-4 disabled:opacity-50"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Enviando...' : 'Enviar'}
               </button>
             </form>
           </div>
-          {/*  */}
         </div>
       </div>
     </LayoutApp>
