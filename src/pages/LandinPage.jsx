@@ -315,13 +315,7 @@ const LandinPage = () => {
                       <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Encuentra artículos y libros válidos para tu marco teórico sin perder tiempo.</p>
                     </div>
                   </div>
-                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
-                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
-                    <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Guía Anti-Errores Fatales</h1>
-                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Evita los fallos que hacen fracasar la mayoría de proyectos de tesis.</p>
-                    </div>
-                  </div>
+
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
@@ -341,20 +335,6 @@ const LandinPage = () => {
                     <div className="flex flex-col">
                       <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Fórmula del Título en 7 Días</h1>
                       <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Aprende a formular un buen título sin dudar durante semanas.</p>
-                    </div>
-                  </div>
-                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
-                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
-                    <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Guía Rápida para tu Defensa Final</h1>
-                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Consejos prácticos para dominar tu exposición y evitar nervios.</p>
-                    </div>
-                  </div>
-                  <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
-                    <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
-                    <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px]  font-bold m-0 ">Kit Secreto del Jurado</h1>
-                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Balotario Exclusivo con las Preguntas Más Frecuentes en Sustentaciones.</p>
                     </div>
                   </div>
                 </div>
