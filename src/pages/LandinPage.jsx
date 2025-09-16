@@ -311,29 +311,29 @@ const LandinPage = () => {
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 xl:gap-7 items-center">
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Pack de Fuentes Confiables</h1>
-                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Encuentra artículos y libros válidos para tu marco teórico sin perder tiempo.</p>
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Lista de Fuentes Confiables</h1>
+                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Encuentra enlaces válidos para tu marco teórico sin perder tiempo.</p>
                     </div>
                   </div>
 
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Plantilla Pro de Formulación Administrativa</h1>
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Guía Pro de Formulación Administrativa</h1>
                       <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Redacta presupuesto, cronograma y justificación con claridad profesional.</p>
                     </div>
                   </div>
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Mini Curso: Proyecto de Tesis desde Cero</h1>
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Mini Guia: Proyecto de Tesis desde Cero</h1>
                       <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Estructura tu proyecto con pasos simples y ejemplos reales.</p>
                     </div>
                   </div>
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
-                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Fórmula del Título en 7 Días</h1>
+                      <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Elaboración del Título en 7 Días</h1>
                       <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Aprende a formular un buen título sin dudar durante semanas.</p>
                     </div>
                   </div>
