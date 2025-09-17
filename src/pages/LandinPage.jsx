@@ -303,7 +303,7 @@ const LandinPage = () => {
                   data-aos-offset="150"
                   className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold text-center ">
                   Y si compras <spam className="text-[#FCB400]">hoy mismo</spam> La Biblia del Tesista
-                  recibes 7 <spam className="text-[#FCB400]">regalos</spam> digitales:
+                  recibes 4 <spam className="text-[#FCB400]">regalos</spam> digitales:
                 </h2>
 
                 <div className="flex flex-col gap-4 sm:gap-7 mn:px-4 md:px-10 xl:px-28 xl:gap-12 3xl:gap-14">
@@ -320,7 +320,7 @@ const LandinPage = () => {
                     <img className="size-7 sm:size-9 md:size-10 lg:size-12 xl:size-16 1xl:size-20" src={dorado} alt="" />
                     <div className="flex flex-col">
                       <h1 className="text-[11px] sm:text-[15px] md:text-[15px] lg:text-[20px] xl:text-[25px] 1xl:text-[30px] 3xl:text-[35px] 5xl:text-[40px] font-bold m-0 ">Guía Pro de Formulación Administrativa</h1>
-                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Redacta presupuesto, cronograma y justificación con claridad profesional.</p>
+                      <p className="sm:text-[17px] md:text-[20px] xl:text-[29px] font-semibold">Redacta el presupuesto y cronograma con claridad profesional.</p>
                     </div>
                   </div>
                   <div data-aos="fade-up" data-aos-offset="150" className="flex flex-row gap-3 lg:gap-5 items-center">
