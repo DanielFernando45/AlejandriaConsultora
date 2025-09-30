@@ -20,6 +20,19 @@ const CountdownTimer = () => {
     return Math.floor((endTime - now) / 1000);
   });
 
+  const handleCheckoutClick = () => {
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("track", "InitiateCheckout", {
+        value: 9.99,   // precio de tu producto
+        currency: "USD" // código ISO (puede ser USD, EUR, MXN, etc.)
+      });
+    }
+
+    // Redirigir a Hotmart
+    window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank");
+  };
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(prevTime => {
@@ -111,7 +124,7 @@ const LandinPage = () => {
 
             <div className="absolute top-[400px] mn:top-[440px] sm:top-[700px] md:top-[800px] xl:top-[970px] 1xl:top-[1300px] w-full px-3">
               <button
-                onClick={() => window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank")}
+                onClick={handleCheckoutClick}
                 data-aos="fade-up"
                 data-aos-offset="300"
                 className="italic text-[14px] sm:text-[20px] lg:text-[30px] block text-white font-extrabold uppercase bg-[#FCB400] rounded-full w-full mn:w-[340px] h-[40px] sm:w-[520px] sm:h-[60px] lg:w-[720px] lg:h-[80px] 4xl:w-[800px] 4xl:h-[100px] mx-auto"
@@ -194,7 +207,7 @@ const LandinPage = () => {
                     />
                   </div>
                   <button
-                    onClick={() => window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10")}
+                    onClick={handleCheckoutClick}
                     data-aos="fade-up"
                     data-aos-offset="300"
                     className="text-[14px] sm:text-[20px] lg:text-[30px] block mt-4 text-white font-extrabold uppercase bg-[#FCB400] rounded-full w-full mn:w-[340px] h-[40px] sm:w-[520px] sm:h-[60px] lg:w-[720px] lg:h-[80px] 4xl:w-[800px] 4xl:h-[100px] mx-auto"
@@ -254,7 +267,7 @@ const LandinPage = () => {
                 </div>
 
                 <button
-                  onClick={() => window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank")}
+                  onClick={handleCheckoutClick}
                   data-aos="zoom-in"
                   data-aos-offset="100"
                   className="italic uppercase text-white bg-[#FCB400] font-extrabold w-full  mn:w-[340px] h-[40px] sm:w-[520px] sm:h-[60px] sm:text-[18px] lg:w-[825px] lg:h-[80px] 4xl:h-[100px] 4xl:w-[913px] text-[11px] lg:text-[25px] 1xl:text-[30px] rounded-full mx-auto block"
@@ -416,7 +429,7 @@ const LandinPage = () => {
                   </h1>
 
                   <button
-                    onClick={() => window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10")}
+                    onClick={handleCheckoutClick}
                     data-aos="flip-up"
                     data-aos-offset="100"
                     className="bg-[#FCB400] block mx-auto text-[14px] sm:text-[20px] lg:text-[30px] 4xl:text-[30px] uppercase text-white font-extrabold italic rounded-full w-full mn:w-[340px] h-[40px] sm:w-[520px] sm:h-[60px] lg:w-[720px] lg:h-[80px] 4xl:w-[800px] 4xl:h-[100px]"

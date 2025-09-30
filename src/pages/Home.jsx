@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LayoutApp from "../layout/LayoutApp";
 import CarouselMarquee from "../components/CarouselMarquee";
-
+import sha256 from "crypto-js/sha256";
 // IMAGENES Y ICONOS
 import hexagon from "../assets/icons/hexagon.png";
 import star from "../assets/icons/star.svg";
@@ -36,6 +36,7 @@ const Home = () => {
   const [submitError, setSubmitError] = useState("");
 
   const handleChange = (event) => {
+
     setFormInputs((lastValues) => ({
       ...lastValues,
       [event.target.id]: event.target.value,
@@ -45,20 +46,27 @@ const Home = () => {
   const handleForm = async (event) => {
     event.preventDefault();
 
-    // Validar campos requeridos
-    if (
-      [
-        formInputs.nombres.trim(),
-        formInputs.apellidos.trim(),
-        formInputs.servicio.trim(),
-        formInputs.carrera.trim(),
-        formInputs.universidad.trim(),
-        formInputs.telefono.trim(),
-      ].some((field) => field === "")
-    ) {
-      alert("Por favor complete todos los campos");
+    // Validación...
+    if (!formInputs.nombres || !formInputs.apellidos || !formInputs.telefono) {
+      setSubmitError("Por favor complete todos los campos obligatorios.");
       return;
     }
+
+
+     // 🔹 Enviar coincidencias avanzadas al pixel
+  const hashedData = {
+    fn: sha256(formInputs.nombres.trim().toLowerCase()).toString(),
+    ln: sha256(formInputs.apellidos.trim().toLowerCase()).toString(),
+    ph: sha256(formInputs.telefono.trim()).toString(),
+  };
+
+  if (typeof window.fbq !== "undefined") {
+    window.fbq("init", "TU_PIXEL_ID", hashedData);
+    window.fbq("track", "Lead", {
+      content_name: "Formulario de contacto",
+      status: "submitted",
+    });
+  }
 
     setIsSubmitting(true);
     setSubmitError("");
