@@ -8,6 +8,7 @@ import maestriaBronce from "../assets/images/promociones/MaestriaBronce.png"
 import maestriaOro from "../assets/images/promociones/MaestriaOro.png"
 import maestriaPlata from "../assets/images/promociones/MaestriaPlata.png"
 import Aos from "aos";
+import sha256 from "crypto-js/sha256";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import ModalPromocion from "../components/ModalPromocion";
@@ -65,20 +66,26 @@ const Promociones = () => {
   const handleForm = async (event) => {
     event.preventDefault();
 
-    // Validación de campos obligatorios
-    formInputs.promo.trim(),
-    formInputs.grado.trim();
-    if (
-      [
-        formInputs.nombres.trim(),
-        formInputs.apellidos.trim(),
-        formInputs.carrera.trim(),
-        formInputs.universidad.trim(),
-        formInputs.telefono.trim(),
-      ].some((field) => field === "")
-    ) {
-      alert("Por favor complete todos los campos obligatorios");
+    // Validación...
+    if (!formInputs.nombres || !formInputs.apellidos || !formInputs.telefono) {
+      setSubmitError("Por favor complete todos los campos obligatorios.");
       return;
+    }
+
+
+    // 🔹 Enviar coincidencias avanzadas al pixel
+    const hashedData = {
+      fn: sha256(formInputs.nombres.trim().toLowerCase()).toString(),
+      ln: sha256(formInputs.apellidos.trim().toLowerCase()).toString(),
+      ph: sha256(formInputs.telefono.trim()).toString(),
+    };
+
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("init", "993020102671178", hashedData);
+      window.fbq("track", "Lead", {
+        content_name: "Formulario de contacto",
+        status: "submitted",
+      });
     }
 
     setIsSubmitting(true);

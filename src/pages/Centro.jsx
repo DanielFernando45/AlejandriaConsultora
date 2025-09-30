@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LayoutApp from "../layout/LayoutApp";
+import sha256 from "crypto-js/sha256";
 import backgroundCentroRecursos from "../assets/images/banners/backgroundCentroRecursos.webp";
 import image_01 from "../assets/images/centro-recursos/image_01.webp";
 import image_02 from "../assets/images/centro-recursos/image_02.webp";
@@ -53,24 +54,32 @@ const Centro = () => {
 
   const handleForm = async (event) => {
     event.preventDefault();
-    
-    // Validación de campos requeridos
-    if (
-      [
-        formInputs.nombres.trim(),
-        formInputs.apellidos.trim(),
-        formInputs.carrera.trim(),
-        formInputs.universidad.trim(),
-        formInputs.telefono.trim(),
-      ].some((field) => field === "")
-    ) {
-      alert("Por favor complete todos los campos obligatorios");
+
+    // Validación...
+    if (!formInputs.nombres || !formInputs.apellidos || !formInputs.telefono) {
+      setSubmitError("Por favor complete todos los campos obligatorios.");
       return;
+    }
+
+
+    // 🔹 Enviar coincidencias avanzadas al pixel
+    const hashedData = {
+      fn: sha256(formInputs.nombres.trim().toLowerCase()).toString(),
+      ln: sha256(formInputs.apellidos.trim().toLowerCase()).toString(),
+      ph: sha256(formInputs.telefono.trim()).toString(),
+    };
+
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("init", "993020102671178", hashedData);
+      window.fbq("track", "Lead", {
+        content_name: "Formulario de contacto",
+        status: "submitted",
+      });
     }
 
     setIsSubmitting(true);
     setSubmitError("");
-    
+
     try {
       const response = await fetch("https://backendalejandria.onrender.com/api/form/add", {
         method: "POST",
@@ -94,11 +103,11 @@ const Centro = () => {
 
       const data = await response.json();
       setSubmitSuccess(true);
-      
+
       // Mostrar mensaje de éxito por 2 segundos
       setTimeout(() => {
         setSubmitSuccess(false);
-        
+
         // Redirigir a WhatsApp después de que desaparezca el mensaje
         let mensaje = `Hola soy *${formInputs.nombres}* *${formInputs.apellidos}* , soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo información sobre los recursos disponibles.`;
         const numero = "51989575820";
@@ -257,7 +266,7 @@ const Centro = () => {
 
         {/* Resto del código permanece igual */}
         <section className=" linear_centro_01 py-[0.1px]">
-          
+
 
           <div className="mn:ml-[18px] sm:ml-[40px] lg:ml-[80px] space-y-[200px] mt-[200px] sm:mt-[268px] lg:mt-[250px] 4xl:mt-[360px]">
             <div

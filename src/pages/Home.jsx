@@ -53,20 +53,20 @@ const Home = () => {
     }
 
 
-     // 🔹 Enviar coincidencias avanzadas al pixel
-  const hashedData = {
-    fn: sha256(formInputs.nombres.trim().toLowerCase()).toString(),
-    ln: sha256(formInputs.apellidos.trim().toLowerCase()).toString(),
-    ph: sha256(formInputs.telefono.trim()).toString(),
-  };
+    // 🔹 Enviar coincidencias avanzadas al pixel
+    const hashedData = {
+      fn: sha256(formInputs.nombres.trim().toLowerCase()).toString(),
+      ln: sha256(formInputs.apellidos.trim().toLowerCase()).toString(),
+      ph: sha256(formInputs.telefono.trim()).toString(),
+    };
 
-  if (typeof window.fbq !== "undefined") {
-    window.fbq("init", "TU_PIXEL_ID", hashedData);
-    window.fbq("track", "Lead", {
-      content_name: "Formulario de contacto",
-      status: "submitted",
-    });
-  }
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("init", "993020102671178", hashedData);
+      window.fbq("track", "Lead", {
+        content_name: "Formulario de contacto",
+        status: "submitted",
+      });
+    }
 
     setIsSubmitting(true);
     setSubmitError("");
@@ -94,7 +94,7 @@ const Home = () => {
       // Mostrar mensaje de éxito por 2 segundos
       setTimeout(() => {
         setSubmitSuccess(false);
-        
+
         // Redirigir a WhatsApp después de que desaparezca el mensaje
         let mensaje = `Hola soy *${formInputs.nombres}* *${formInputs.apellidos}* , soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
         const numero = "51989575820";
@@ -243,7 +243,7 @@ const Home = () => {
         </section>
 
         <div className="gradient pt-20">
-      
+
           <div className="w-[90%] sm:w-[520px] lg:w-[740px] 1xl:w-[1210px] 4xl:w-[1522px] flex flex-col gap-y-[60px] 1xl:flex-row justify-between 2xl:h-[626px] mx-auto relative ml-[18px] sm:ml-[40px] lg:ml-[80px]">
             <div
               data-aos="fade-down"

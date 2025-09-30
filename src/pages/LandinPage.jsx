@@ -11,6 +11,7 @@ import capa_04 from "../assets/images/capa_04.png";
 import dorado from "../assets/images/tesistaBible/RegaloDorado.png";
 
 const CountdownTimer = () => {
+
   const [timeLeft, setTimeLeft] = useState(() => {
     // Calculamos el tiempo restante basado en el tiempo actual y el ciclo de 3 horas
     const now = Date.now();
@@ -20,17 +21,7 @@ const CountdownTimer = () => {
     return Math.floor((endTime - now) / 1000);
   });
 
-  const handleCheckoutClick = () => {
-    if (typeof window.fbq !== "undefined") {
-      window.fbq("track", "InitiateCheckout", {
-        value: 9.99,   // precio de tu producto
-        currency: "USD" // código ISO (puede ser USD, EUR, MXN, etc.)
-      });
-    }
 
-    // Redirigir a Hotmart
-    window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank");
-  };
 
 
   useEffect(() => {
@@ -78,6 +69,18 @@ const CountdownTimer = () => {
 };
 
 const LandinPage = () => {
+  const handleCheckoutClick = () => {
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("track", "InitiateCheckout", {
+        value: 37.00,   // precio de tu producto
+        currency: "PEN" // código ISO (puede ser USD, EUR, MXN, etc.)
+      });
+    }
+
+    // Redirigir a Hotmart
+    window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank");
+  };
+
   return (
     <LayoutApp>
       <main className="overflow-hidden ">
@@ -109,17 +112,17 @@ const LandinPage = () => {
                w-[250px] mn:w-[290px] sm:w-[480px] md:w-[650px] xl:w-[900px] 1xl:w-[1250px] h-[140px] mn:h-[180px] sm:h-[320px] md:h-[390px]
                 xl:h-[520px] 1xl:h-[690px]"
             >
-             
+
               <iframe
-                 className="absolute w-full h-full"
+                className="absolute w-full h-full"
                 src="https://www.youtube.com/embed/GwmBj30rpds"
                 title="¡SUPERA TU BLOQUEO DE TESIS! 🎓💪"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
 
-                </iframe>
             </div>
 
             <div className="absolute top-[400px] mn:top-[440px] sm:top-[700px] md:top-[800px] xl:top-[970px] 1xl:top-[1300px] w-full px-3">
@@ -187,7 +190,7 @@ const LandinPage = () => {
                   <div className="px-5 3xl:w-[800px] ">
                     <div className="flex flex-col  xl:items-start 3xl:gap-5">
                       <p className="text-[18px] sm:text-[30px] md:text-[42px] 3xl:text-[50px] text-center">La Bilbia del Tesista</p>
-                      <p className="text-center sm:text-[20px] md:text-[25px] xl:text-[33px] 3xl:text-[38px]">Un <spam className="text-[#0CB2D5] ">faro</spam>  para tu camino académico</p>
+                      <p className="text-center sm:text-[20px] md:text-[25px] xl:text-[33px] 3xl:text-[38px]">Un <span className="text-[#0CB2D5] ">faro</span>  para tu camino académico</p>
                     </div>
                     <div className="mt-7 font-medium text-[10px] mn:text-[12px] sm:text-[18px] md:text-[20px] lg:text-[25px] 3xl:text-[27px]">
                       <p>- Explicación simple de todos los capítulos de la tesis</p> <br></br>
@@ -224,24 +227,24 @@ const LandinPage = () => {
               >
                 <div>
                   <p className="text-[#0CB2D5]">Incluye:</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. I: Términos Básicos</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>   Cap. II: Estructura de la Tesis</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. III: Problema de Investigación</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. IV: Título para una Investigación</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. V: Matrices de Consistencia y Operacionalización</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. VI: Redacción de la Introducción</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. VII: Planteamiento del problema</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam>  Cap. VIII: Marco Teórico </p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. I: Términos Básicos</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>   Cap. II: Estructura de la Tesis</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. III: Problema de Investigación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. IV: Título para una Investigación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. V: Matrices de Consistencia y Operacionalización</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VI: Redacción de la Introducción</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VII: Planteamiento del problema</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VIII: Marco Teórico </p> <br></br>
                 </div>
                 <div>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. IX: Recopilación de Información</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. X: Metodología</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XI: Aspecto Administrativo</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XII: Resultados</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XIII: Prueba Estadística</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XIV: Discusión, Conclusión y Recomendación</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XV: Tipos de Matrices según Diseño</p> <br></br>
-                  <p><spam className="text-[#464646]">✔</spam> Cap. XVI: Tips para realizar el Parafraseo</p> < br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. IX: Recopilación de Información</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. X: Metodología</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XI: Aspecto Administrativo</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XII: Resultados</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XIII: Prueba Estadística</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XIV: Discusión, Conclusión y Recomendación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XV: Tipos de Matrices según Diseño</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XVI: Tips para realizar el Parafraseo</p> < br></br>
                 </div>
               </div>
             </div>
@@ -261,9 +264,9 @@ const LandinPage = () => {
                   data-aos-offset="150"
                   className="font-bold px-10   sm:text-[16px] md:text-[20px] xl:text-[28px] md:px-16 xl:px-20 1xl:px-44"
                 >
-                  <p><spam className="text-[#272742] italic">✔ Tranquilidad mental:</spam> vas a entender lo que tienes que hacer</p> <br />
-                  <p><spam className="text-[#272742] italic">✔ Confianza académica:</spam> sabrás cómo plantear bien tu tema y objetivos</p> <br />
-                  <p><spam className="text-[#272742] italic">✔ Sensación de avance:</spam> dejas de procrastinar y comienzas a avanzar en serio</p>
+                  <p><span className="text-[#272742] italic">✔ Tranquilidad mental:</span> vas a entender lo que tienes que hacer</p> <br />
+                  <p><span className="text-[#272742] italic">✔ Confianza académica:</span> sabrás cómo plantear bien tu tema y objetivos</p> <br />
+                  <p><span className="text-[#272742] italic">✔ Sensación de avance:</span> dejas de procrastinar y comienzas a avanzar en serio</p>
                 </div>
 
                 <button
@@ -315,8 +318,8 @@ const LandinPage = () => {
                 <h2 data-aos="fade-up"
                   data-aos-offset="150"
                   className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold text-center ">
-                  Y si compras <spam className="text-[#FCB400]">hoy mismo</spam> La Biblia del Tesista
-                  recibes 4 <spam className="text-[#FCB400]">regalos</spam> digitales:
+                  Y si compras <span className="text-[#FCB400]">hoy mismo</span> La Biblia del Tesista
+                  recibes 4 <span className="text-[#FCB400]">regalos</span> digitales:
                 </h2>
 
                 <div className="flex flex-col gap-4 sm:gap-7 mn:px-4 md:px-10 xl:px-28 xl:gap-12 3xl:gap-14">
@@ -360,7 +363,7 @@ const LandinPage = () => {
               >
                 <div className="flex flex-col gap-4 xl:gap-8 text-center xl:text-start font-semibold sm:text-[17px] md:text-[20px] xl:text-[29px] mb-8 md:px-5">
                   <h2 className="text-[18px] sm:text-[25px] md:text-[35px] xl:text-[44px] font-bold ">
-                    <spam className="text-[#FCB400]">Garantía </spam>
+                    <span className="text-[#FCB400]">Garantía </span>
                     de satisfacción 7 días
                   </h2>
                   <p className="">Si el producto no te ayuda como prometemos, te devolvemos el 100% de tu dinero.</p>
@@ -390,7 +393,7 @@ const LandinPage = () => {
                         La oferta termina en...
                       </h2>
                       <CountdownTimer duration={3 * 60 * 60} />
-                      <p className="font-medium text-center sm:text-[17px] md:text-[20px] mt-10 xl:mt-1 xl:text-[27px] ">Por sólo <spam className="text-[#FCB400]">$9.99</spam> , accede al ebook digital que te da claridad, estructura y acompañamiento real en tu tesis.</p>
+                      <p className="font-medium text-center sm:text-[17px] md:text-[20px] mt-10 xl:mt-1 xl:text-[27px] ">Por sólo <span className="text-[#FCB400]">$9.99</span> , accede al ebook digital que te da claridad, estructura y acompañamiento real en tu tesis.</p>
                     </div>
 
                     <div
@@ -422,10 +425,10 @@ const LandinPage = () => {
                     data-aos-offset="150"
                     className="text-[15px] sm:text-[20px] md:text-[23px] xl:text-[40px] 1xl:text-[45px] 5xl:text-[50px] text-center leading-[35px] xl:leading-[85px]"
                   >
-                    Tu <spam className="text-[#0CB2D5]">tesis</spam> no tiene que ser una fuente de
-                    <spam className="text-[#0CB2D5]"> ansiedad</spam>. Con la
-                    <spam className="text-[#FCB400]"> Biblia del Tesista</spam>, vas a tener
-                    <spam className="text-[#0CB2D5]"> claridad</spam>,<spam className="text-[#0CB2D5]"> estructura</spam> y <spam className="text-[#0CB2D5]">motivación</spam>.
+                    Tu <span className="text-[#0CB2D5]">tesis</span> no tiene que ser una fuente de
+                    <span className="text-[#0CB2D5]"> ansiedad</span>. Con la
+                    <span className="text-[#FCB400]"> Biblia del Tesista</span>, vas a tener
+                    <span className="text-[#0CB2D5]"> claridad</span>,<span className="text-[#0CB2D5]"> estructura</span> y <span className="text-[#0CB2D5]">motivación</span>.
                   </h1>
 
                   <button
