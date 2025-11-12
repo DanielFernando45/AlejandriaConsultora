@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import menu_icon from "../assets/icons/menu-icon.svg";
 import logo from "../assets/images/logo.png";
-
+import whatssap from "../assets/icons/whatss.png";
 const LINKS = [
   { id: 1, path: "", title: "Consultoría" },
   { id: 2, path: "", title: "Cursos" },
@@ -15,6 +15,11 @@ const LINKS = [
 const NavBar = ({ handleOpenSidebar, handleContact }) => {
   const [showOptions, setShowOption] = useState(false);
   const [showPromoOptions, setShowPromoOption] = useState(false);
+
+
+  const handleIntranet = () => {
+    window.location.href = "https://intranet.alejandriaconsultora.com/";
+  }
 
   const handleOption = () => {
     setShowOption(!showOptions);
@@ -37,7 +42,7 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
   });
 
   return (
-    <nav className="absolute z-20 top-[25px] mn:top-[48px] sm:top-[60px] 1xl:top-[45.5px] 4xl:top-[50px] left-1/2 -translate-x-1/2 5xl:h-[50px] 4xl:w-[1568px] 1xl:w-[1287px] w-[90%] mx-auto flex justify-center items-center 1xl:gap-x-[80px] 4xl:gap-x-[135px]">
+    <nav className="absolute z-20 top-[25px] mn:top-[48px] sm:top-[60px] 1xl:top-[45.5px] 4xl:top-[50px] left-1/2 -translate-x-1/2 5xl:h-[50px] 4xl:w-[1568px] 1xl:w-[1350px] w-[90%] mx-auto flex justify-center items-center 1xl:gap-x-[10px] 4xl:gap-x-[50px]">
       <div className="text-white w-[181px] text-center m-0 p-0 flex flex-col items-center">
         <Link to={"/"}>
           <img
@@ -60,11 +65,10 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
                   {link.title}
                 </button>
                 <div
-                  className={`${
-                    showOptions
+                  className={`${showOptions
                       ? "visible opacity-100 mt-4"
                       : "invisible opacity-0 mt-8"
-                  } flex-col absolute top-full  transition-all duration-300 bg-white w-[300px] px-8 py-4 rounded-xl`}
+                    } flex-col absolute top-full  transition-all duration-300 bg-white w-[300px] px-8 py-4 rounded-xl`}
                 >
                   <Link
                     to={"/tesis"}
@@ -101,11 +105,10 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
                   {link.title}
                 </button>
                 <div
-                  className={`${
-                    showPromoOptions
+                  className={`${showPromoOptions
                       ? "visible opacity-100 mt-4"
                       : "invisible opacity-0 mt-8"
-                  } flex-col absolute top-full  transition-all duration-300 bg-white w-[300px] px-8 py-4 rounded-xl`}
+                    } flex-col absolute top-full  transition-all duration-300 bg-white w-[300px] px-8 py-4 rounded-xl`}
                 >
                   <Link
                     to={"/promociones"}
@@ -128,13 +131,26 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
         ))}
       </ul>
 
-      <button
+        <div className="flex gap-3">
+         <button
         aria-label="Abrir enlace whatsapp"
         onClick={handleContact}
-        className="hidden 1xl:flex hover:bg-black hover:text-white px-2 1xl:w-[220px] 4xl:w-[225px] 1xl:h-[35px] 4xl:h-[40px]  justify-center text-center 1xl:text-[20px] 4xl:text-[25px] font-bold text-white border-2 border-white rounded-2xl items-center"
+        className="hidden 1xl:flex w-[190px] hover:bg-[#1C1C34] gap-2 border-2 border-white rounded-2xl items-center py-2 px-4 font-bold text-white 1xl:text-[15px] 4xl:text-[20px]"
       >
-        Contáctanos
+        <img className="w-[20px] " src={whatssap} alt="" />
+
+        Contáctanos 
       </button>
+
+      <button
+        className="hidden gap-1 1xl:flex px-8 py-2 hover:bg-[#1C1C34] hover:text-white    justify-center  1xl:text-[15px] 4xl:text-[20px] font-bold text-white border-2 border-white rounded-2xl " 
+        onClick={handleIntranet}    
+                  >
+        <p>Portal</p>  <p>Intranet</p> 
+         
+      </button>    
+        </div>
+      
 
       <button
         aria-label="Abrir menú de navegación"
@@ -147,6 +163,7 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
           alt="menu_icon"
         />
       </button>
+
     </nav>
   );
 };

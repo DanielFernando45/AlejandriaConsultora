@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import close from "../assets/icons/close.svg";
-
+import whatssap from "../assets/icons/whatss.png";
+import iconAleja from "../assets/icons/alejaIcon.png";
 const Sidebar = ({
   openSidebar,
   handleCloseSidebar,
@@ -10,17 +11,19 @@ const Sidebar = ({
   showPromoOptions,
   setShowPromoOptions,
 }) => {
+  const handlerIntranet = () => {
+    window.location.href = "https://intranet.alejandriaconsultora.com/";
+  }
+
   return (
     <div
-      className={`${
-        openSidebar ? "visible delay-0" : "invisible delay-100"
-      }  w-full h-full fixed bg-black/60 z-30 top-0 left-0 transition-all`}
+      className={`${openSidebar ? "visible delay-0" : "invisible delay-100"
+        }  w-full h-full fixed bg-black/60 z-30 top-0 left-0 transition-all`}
     >
       <div
         id="sidebar"
-        className={`bg-[#1c1c34] w-full mn:w-[350px] p-4 text-[16px]  text-white ${
-          openSidebar ? "translate-x-0 delay-300 " : "-translate-x-full delay-0"
-        } h-screen relative z-40  duration-300 flex items-center`}
+        className={`bg-[#1c1c34] w-full mn:w-[350px] p-4 text-[16px]  text-white ${openSidebar ? "translate-x-0 delay-300 " : "-translate-x-full delay-0"
+          } h-screen relative z-40  duration-300 flex items-center`}
       >
         <button
           type="button"
@@ -40,11 +43,10 @@ const Sidebar = ({
             >
               Consultoría
               <div
-                className={`transition-[height] w-[250px] ${
-                  showOptions
+                className={`transition-[height] w-[250px] ${showOptions
                     ? "h-[163px] relative opacity-100 pt-[10px]"
                     : "h-0 opacity-0"
-                } flex flex-col justify-between overflow-hidden`}
+                  } flex flex-col justify-between overflow-hidden`}
               >
                 <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700" to={"/tesis"}>
                   Tesis
@@ -70,7 +72,7 @@ const Sidebar = ({
             >
               Nosotros
             </Link>
-            
+
             <div
               onClick={() => {
                 setShowPromoOptions(!showPromoOptions);
@@ -80,11 +82,10 @@ const Sidebar = ({
             >
               Promociones
               <div
-                className={`transition-[height] w-[250px] ${
-                  showPromoOptions
+                className={`transition-[height] w-[250px] ${showPromoOptions
                     ? "h-[80px] relative opacity-100 pt-[10px]"
                     : "h-0 opacity-0"
-                } flex flex-col justify-between overflow-hidden`}
+                  } flex flex-col justify-between overflow-hidden`}
               >
                 <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700" to={"/promociones"}>
                   Promociones
@@ -107,14 +108,29 @@ const Sidebar = ({
             >
               Blog
             </Link>
-            
+
           </div>
-          <button
-            onClick={handleContact}
-            className="mt-[60px] flex justify-center items-center border border-white rounded-full text-white text-[18px] py-[9px] px-[39px] font-bold"
-          >
-            Contáctanos
-          </button>
+
+          <div className="flex flex-col gap-5 mt-[60px]">
+            <button
+              onClick={handlerIntranet}
+              className="gap-5 flex justify-center items-center border border-white rounded-full text-white text-[18px] py-[9px] px-[39px] font-bold"
+            >
+              <img className="w-6" src={iconAleja} alt="" />
+              Intranet Portal +
+            </button>
+
+            <button
+              onClick={handleContact}
+              className="gap-5 flex justify-center items-center border border-white rounded-full text-white text-[18px] py-[9px] px-[39px] font-bold"
+            >
+              <img className="w-6" src={whatssap} alt="" />
+              Contáctanos
+            </button>
+          </div>
+
+
+
         </div>
       </div>
     </div>
