@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import menu_icon from "../assets/icons/menu-icon.svg";
 import logo from "../assets/images/logo.png";
 import whatssap from "../assets/icons/whatss.png";
+import iconAleja from "../assets/icons/alejaIcon.png";
 const LINKS = [
   { id: 1, path: "", title: "Consultoría" },
   { id: 2, path: "", title: "Cursos" },
@@ -143,10 +144,11 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
       </button>
 
       <button
-        className="hidden gap-1 1xl:flex px-8 py-2 hover:bg-[#1C1C34] hover:text-white    justify-center  1xl:text-[15px] 4xl:text-[20px] font-bold text-white border-2 border-white rounded-2xl " 
+        className="hidden gap-1 1xl:flex px-8 py-2 hover:bg-[#1C1C34] hover:text-white    justify-center items-center  1xl:text-[15px] 4xl:text-[18px] font-bold text-white border-2 border-white rounded-2xl " 
         onClick={handleIntranet}    
                   >
-        <p>Portal</p>  <p>Intranet</p> 
+        <img className="1xl:w-[18px] 4xl:w-[20px] " src={iconAleja} alt="" />      
+        <p>INTRANET</p> 
          
       </button>    
         </div>
