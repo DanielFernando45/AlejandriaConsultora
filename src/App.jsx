@@ -26,6 +26,7 @@ const ArticuloCientifico = React.lazy(() =>
 const Centro = React.lazy(() => import("./pages/Centro"));
 const Cursos = React.lazy(() => import("./pages/Cursos"));
 const LibroReclamasiones = React.lazy(() => import("./pages/LibroReclamasiones"));
+const PoliticasPrivacidad = React.lazy(() => import("./pages/PoliticasPrivacidad"));
 
 const options = {
   autoConfig: true, 
@@ -78,6 +79,7 @@ export const App = () => {
         <Route path="/blog/metodologia-investigacion" element={<MetodologiaInvestigacion />} />
         <Route path="/blog/revistas-depredadoras" element={<RevistasDepredadoras />} />
         <Route path="/blog/tesis" element={<BlogTesis />} />
+        <Route path="/politicas-privacidad" element={<PoliticasPrivacidad />} />
         <Route path="/blog/Articulo" element={<BlogArticulo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

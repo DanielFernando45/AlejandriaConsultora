@@ -68,6 +68,14 @@ const Footer = () => {
                 </p>
               </div>
             </div>
+            <div>
+                <Link
+                  to={"/politicas-privacidad"}
+                  className="uppercase text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[20px] font-semibold"
+                >
+                POLITICAS DE PRIVACIDAD
+                </Link>
+            </div>
           </div>
         </div>
         {/* COL 2 */}
