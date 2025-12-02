@@ -287,7 +287,7 @@ const Centro = () => {
             </div>
 
             <Marquee
-              speed={300}
+              speed={100}
               className="overflow-hidden pt-[50px] sm:pt-[50px] lg:pt-[100px] 1xl:pt-[200px]"
             >
               <div className="image_wrapper">

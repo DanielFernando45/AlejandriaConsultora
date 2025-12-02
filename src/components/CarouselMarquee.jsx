@@ -7,7 +7,7 @@ import empresa_05 from "../assets/images/empresa_05.webp";
 
 const CarouselMarquee = () => {
   return (
-    <Marquee speed={300} className="space h-[150px]">
+    <Marquee speed={100} className="space h-[150px]">
       <div className="image_wrapper">
         <img
           className="w-[129px] h-[38px] sm:w-[174px] sm:h-[40px] lg:w-[244px] lg:h-[54px]"

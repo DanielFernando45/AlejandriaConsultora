@@ -784,7 +784,7 @@ const Nosotros = () => {
               Ayudas Sociales
             </h3>
             <Marquee
-              speed={300}
+              speed={100}
               className="space h-[300px] overflow-hidden py-4"
             >
               <div className="image_wrapper">
