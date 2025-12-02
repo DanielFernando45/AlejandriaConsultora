@@ -1,5 +1,6 @@
 import LayoutApp from "../layout/LayoutApp";
 import CarouselMarquee from "../components/CarouselMarquee";
+import SEOMetadata from "../components/SEOMetadata";
 // ICONOS
 import backgroundPlanNegocio from "../assets/images/banners/backgroundPlanNegocio.webp";
 import capa_mini from "../assets/icons/capa_mini.svg";
@@ -42,6 +43,12 @@ const PlanNegocio = () => {
 
   return (
     <LayoutApp>
+      <SEOMetadata 
+        title="Plan de Negocio - Asesoría Profesional"
+        description="Elaboración completa de planes de negocio. Análisis de mercado, viabilidad económica y financiera. Correcciones ilimitadas, reporte Turnitin y presentación profesional. Expertos en emprendimiento y startups."
+        keywords="plan de negocio, business plan, emprendimiento, startup, viabilidad financiera, modelo de negocio, asesoría empresarial, PRODUCE"
+        canonical="/plan-negocio"
+      />
       <main className="overflow-hidden">
         <section
           className={`h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative`}

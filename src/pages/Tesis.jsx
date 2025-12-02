@@ -1,4 +1,5 @@
 import LayoutApp from "../layout/LayoutApp";
+import SEOMetadata from "../components/SEOMetadata";
 // ICONOS
 import backgroundTesis from "../assets/images/banners/backgroundTesis.webp";
 import capa_mini from "../assets/icons/capa_mini.svg";
@@ -42,6 +43,12 @@ const Tesis = () => {
 
   return (
     <LayoutApp>
+      <SEOMetadata 
+        title="Asesoría de Tesis Universitaria"
+        description="Servicio completo de asesoría y elaboración de tesis universitaria. Desde la propuesta hasta la sustentación. Correcciones ilimitadas, reporte Turnitin, presentación PowerPoint y ensayo de sustentación. Expertos en todas las áreas académicas."
+        keywords="asesoría de tesis, elaboración de tesis, tesis universitaria, hacer tesis, asesor de tesis, sustentación de tesis, tesis pregrado, tesis posgrado, tesis maestría, tesis doctorado, Turnitin, corrección de tesis"
+        canonical="/tesis"
+      />
       <main className="overflow-hidden">
         <section
           className={`h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative`}

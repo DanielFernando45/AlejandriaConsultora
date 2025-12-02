@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import LayoutApp from "../layout/LayoutApp";
 import CarouselMarquee from "../components/CarouselMarquee";
 import sha256 from "crypto-js/sha256";
+import { Helmet } from "react-helmet-async";
 // IMAGENES Y ICONOS
 import hexagon from "../assets/icons/hexagon.png";
 import star from "../assets/icons/star.svg";
@@ -122,6 +123,32 @@ const Home = () => {
 
   return (
     <LayoutApp>
+      <Helmet>
+        <title>Asesoría de Tesis Profesional | Alejandría Centro de Investigación</title>
+        <meta name="description" content="Asesoría de tesis profesional en Perú. Más de 10 años de experiencia, +1500 casos de éxito. Elaboración completa de tesis, TSP, artículos científicos y planes de negocio. Expertos en investigación académica." />
+        <meta name="keywords" content="asesoría de tesis, tesis profesional, elaboración de tesis, asesor de tesis Perú, tesis universitaria, TSP, trabajo de suficiencia profesional, artículo científico, plan de negocio, investigación académica, sustentación de tesis" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alejandriaconsultora.com/" />
+        <meta property="og:title" content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación" />
+        <meta property="og:description" content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad. +1500 casos de éxito." />
+        <meta property="og:image" content="https://alejandriaconsultora.com/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://alejandriaconsultora.com/" />
+        <meta property="twitter:title" content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación" />
+        <meta property="twitter:description" content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad." />
+        <meta property="twitter:image" content="https://alejandriaconsultora.com/og-image.jpg" />
+
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Alejandría Centro de Investigación" />
+        <meta name="geo.region" content="PE-LIM" />
+        <meta name="geo.placename" content="Lima, Perú" />
+        <link rel="canonical" content="https://alejandriaconsultora.com/" />
+      </Helmet>
       <main className="overflow-hidden">
         <section className="h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative flex 1xl:block ">
           {/* FORMULARIO */}

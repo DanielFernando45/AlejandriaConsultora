@@ -1,4 +1,5 @@
 import LayoutApp from "../layout/LayoutApp";
+import SEOMetadata from "../components/SEOMetadata";
 import backgroundArticuloCientifico from "../assets/images/banners/backgroundArticuloCientifico.webp";
 import capa_mini from "../assets/icons/capa_mini.svg";
 import image_01 from "../assets/images/articulo-cientifico/image_01.webp";
@@ -37,6 +38,12 @@ const ArticuloCientifico = () => {
 
   return (
     <LayoutApp>
+      <SEOMetadata 
+        title="Artículo Científico - Publicación en Revistas Indexadas"
+        description="Elaboración y publicación de artículos científicos en revistas indexadas (Scopus, SciELO, WOS). Asesoría completa, correcciones ilimitadas, reporte Turnitin y gestión de publicación. Expertos en investigación científica."
+        keywords="artículo científico, publicación científica, Scopus, SciELO, WOS, revistas indexadas, paper científico, investigación científica, publicar artículo"
+        canonical="/articulo-cientifico"
+      />
       <main className="overflow-hidden">
         <section
           className={`h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative`}

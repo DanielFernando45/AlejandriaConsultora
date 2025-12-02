@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LayoutApp from "../layout/LayoutApp";
+import SEOMetadata from "../components/SEOMetadata";
 import background_main from "../assets/images/banners/backgroundNosotros.webp";
 import image_01 from "../assets/images/nosotros/image_01.webp";
 import image_02 from "../assets/images/nosotros/image_02.webp";
@@ -46,6 +47,12 @@ const Nosotros = () => {
 
   return (
     <LayoutApp>
+      <SEOMetadata 
+        title="Nosotros - Expertos en Asesoría de Tesis"
+        description="Conoce a Alejandría Centro de Investigación. Más de 10 años de experiencia en asesoría de tesis. Equipo multidisciplinario de expertos, miembros de la Cámara de Comercio de Lima. Visión, misión, valores y compromiso con la excelencia académica."
+        keywords="sobre nosotros, equipo de asesores, empresa de tesis, consultora académica, experiencia en tesis, Cámara de Comercio Lima, investigación académica, responsabilidad social"
+        canonical="/nosotros"
+      />
       <main className="bg-[#1c1c34] overflow-hidden">
         <section
           className={`h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative`}
@@ -121,14 +128,14 @@ const Nosotros = () => {
               <h3
                 data-aos="fade-up"
                 data-aos-offset="100"
-                className="text-[18px] sm:text-[25px] lg:text-[30px] 1xl:text-[30px] 4xl:text-[35px] text-[#0CB2D5] font-semibold uppercase"
+                className="text-[18px] sm:text-[25px] lg:text-[30px] 1xl:text-[30px] 4xl:text-[35px] text-[#0CB2D5] font-semibold uppercase mb-4"
               >
                 Filosofía
               </h3>
               <p
                 data-aos="fade-up"
                 data-aos-offset="100"
-                className="text-white 1xl:w-[889px] 4xl:w-[1054px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] font-semibold text-justify"
+                className="text-white 1xl:w-[889px] 4xl:w-[1054px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] font-semibold text-ellipsis"
               >
                 Ser un faro de innovación e investigación de vanguardia,
                 iluminando el camino del progreso científico, tecnológico y

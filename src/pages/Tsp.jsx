@@ -1,4 +1,5 @@
 import LayoutApp from "../layout/LayoutApp";
+import SEOMetadata from "../components/SEOMetadata";
 // ICONOS
 import backgroundTSP from "../assets/images/banners/backgroundTSP.webp";
 
@@ -43,6 +44,12 @@ const Tsp = () => {
 
   return (
     <LayoutApp>
+      <SEOMetadata 
+        title="TSP - Trabajo de Suficiencia Profesional"
+        description="Asesoría completa para Trabajo de Suficiencia Profesional (TSP). Elaboración integral, correcciones ilimitadas, reporte Turnitin y preparación para sustentación. Expertos en todas las áreas académicas."
+        keywords="TSP, trabajo de suficiencia profesional, asesoría TSP, elaboración TSP, sustentación TSP, bachiller, título profesional, Turnitin TSP"
+        canonical="/tsp"
+      />
       <main className="overflow-hidden">
         <section
           className={`h-[500px] sm:h-[600px] md:h-[800px] 1xl:h-[1117px] relative`}
