@@ -43,7 +43,7 @@ const NavBar = ({ handleOpenSidebar, handleContact }) => {
   });
 
   return (
-    <nav className="fixed z-20 top-[25px] mn:top-[48px] sm:top-[60px] 1xl:top-[45.5px] 4xl:top-[50px] left-1/2 -translate-x-1/2 5xl:h-[50px] 4xl:w-[1568px] 1xl:w-[1350px] w-[90%] mx-auto flex justify-center items-center 1xl:gap-x-[10px] 4xl:gap-x-[50px]">
+    <nav className="absolute z-20 top-[25px] mn:top-[48px] sm:top-[60px] 1xl:top-[45.5px] 4xl:top-[50px] left-1/2 -translate-x-1/2 5xl:h-[50px] 4xl:w-[1568px] 1xl:w-[1350px] w-[90%] mx-auto flex justify-center items-center 1xl:gap-x-[10px] 4xl:gap-x-[50px]">
       <div className="text-white w-[181px] text-center m-0 p-0 flex flex-col items-center">
         <Link to={"/"}>
           <img
