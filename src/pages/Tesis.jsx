@@ -43,7 +43,7 @@ const Tesis = () => {
 
   return (
     <LayoutApp>
-      <SEOMetadata 
+      <SEOMetadata
         title="Asesoría de Tesis Universitaria"
         description="Servicio completo de asesoría y elaboración de tesis universitaria. Desde la propuesta hasta la sustentación. Correcciones ilimitadas, reporte Turnitin, presentación PowerPoint y ensayo de sustentación. Expertos en todas las áreas académicas."
         keywords="asesoría de tesis, elaboración de tesis, tesis universitaria, hacer tesis, asesor de tesis, sustentación de tesis, tesis pregrado, tesis posgrado, tesis maestría, tesis doctorado, Turnitin, corrección de tesis"
@@ -741,7 +741,9 @@ const Tesis = () => {
                           Cursos grabados, genéricos y poco adaptados a tus
                           necesidades.
                         </p>
-                        <p>Inducciones improvisadas que no inspiran confianza.</p>
+                        <p>
+                          Inducciones improvisadas que no inspiran confianza.
+                        </p>
                       </div>
                     </div>
                   </div>

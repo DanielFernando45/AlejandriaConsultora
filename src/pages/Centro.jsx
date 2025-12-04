@@ -277,7 +277,7 @@ const Centro = () => {
               <h2 className="uppercase text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[30px]  1xl:text-[30px] 4xl:text-[35px] font-semibold">
                 Eventos
               </h2>
-              <p className="text-white font-semibold  mn:w-[315px] sm:w-[435px] lg:w-[644px] 1xl:w-[968px] 4xl:w-[1054px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] text-justify mx-auto mn:mx-0">
+              <p className="text-white font-semibold  mn:w-[315px] sm:w-[435px] lg:w-[644px] 1xl:w-[968px] 4xl:w-[1054px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] text-ellipsis mx-auto mn:mx-0">
                 Mantente actualizado con nuestros talleres, seminarios y
                 webinars exclusivos diseñados para potenciar tus habilidades
                 académicas. Descubre nuevas tendencias en investigación,
@@ -342,7 +342,7 @@ const Centro = () => {
               <h2 className="uppercase text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[30px]  1xl:text-[30px] 4xl:text-[35px] font-semibold">
                 Herramientas
               </h2>
-              <p className="text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] text-white font-semibold leading-normal text-justify">
+              <p className="text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25px] 4xl:text-[40px] text-white font-semibold leading-normal text-ellipsis">
                 Accede a nuestra suite exclusiva de herramientas diseñadas para
                 optimizar tu proceso de investigación y escritura. Desde
                 generadores de citas automáticas hasta software de detección de
@@ -387,7 +387,7 @@ const Centro = () => {
               <h3 className="text-[#0CB2D5] text-[18px] sm:text-[25px] lg:text-[30px] 1xl:text-[30px] 4xl:text-[35px] uppercase font-semibold mb-[20px]">
                 librería virtual
               </h3>
-              <p className="text-white w-full mn:w-[300px] sm:w-[396px] lg:w-677px] 1xl:w-[843px] 4xl:w-[1105px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25] 4xl:text-[40px] font-semibold text-justify">
+              <p className="text-white w-full mn:w-[300px] sm:w-[396px] lg:w-677px] 1xl:w-[843px] 4xl:w-[1105px] text-[14px] sm:text-[20px] lg:text-[25px] 1xl:text-[25] 4xl:text-[40px] font-semibold text-ellipsis">
                 Accede a una amplia colección de recursos digitales, que incluye
                 libros especializados, artículos científicos y guías prácticas.
                 Nuestra biblioteca virtual te ofrece información confiable y

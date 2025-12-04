@@ -37,7 +37,6 @@ const Home = () => {
   const [submitError, setSubmitError] = useState("");
 
   const handleChange = (event) => {
-
     setFormInputs((lastValues) => ({
       ...lastValues,
       [event.target.id]: event.target.value,
@@ -52,7 +51,6 @@ const Home = () => {
       setSubmitError("Por favor complete todos los campos obligatorios.");
       return;
     }
-
 
     // 🔹 Enviar coincidencias avanzadas al pixel
     const hashedData = {
@@ -73,16 +71,19 @@ const Home = () => {
     setSubmitError("");
 
     try {
-      const response = await fetch("https://backendalejandria.onrender.com/api/form/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formInputs,
-          url: "https://alejandriaconsultora.com"
-        }),
-      });
+      const response = await fetch(
+        "https://backendalejandria.onrender.com/api/form/add",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formInputs,
+            url: "https://alejandriaconsultora.com",
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
@@ -99,7 +100,9 @@ const Home = () => {
         // Redirigir a WhatsApp después de que desaparezca el mensaje
         let mensaje = `Hola soy *${formInputs.nombres}* *${formInputs.apellidos}* , soy de la carrera *${formInputs.carrera}* de la universidad *${formInputs.universidad}* y deseo cotizar y adquirir el servicio de *${formInputs.servicio}*`;
         const numero = "51989575820";
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(
+          mensaje
+        )}`;
         window.open(url, "_blank");
 
         // Resetear el formulario
@@ -112,10 +115,11 @@ const Home = () => {
           telefono: "",
         });
       }, 2000);
-
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
-      setSubmitError("Ocurrió un error al enviar el formulario. Por favor intente nuevamente.");
+      setSubmitError(
+        "Ocurrió un error al enviar el formulario. Por favor intente nuevamente."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -124,23 +128,52 @@ const Home = () => {
   return (
     <LayoutApp>
       <Helmet>
-        <title>Asesoría de Tesis Profesional | Alejandría Centro de Investigación</title>
-        <meta name="description" content="Asesoría de tesis profesional en Perú. Más de 10 años de experiencia, +1500 casos de éxito. Elaboración completa de tesis, TSP, artículos científicos y planes de negocio. Expertos en investigación académica." />
-        <meta name="keywords" content="asesoría de tesis, tesis profesional, elaboración de tesis, asesor de tesis Perú, tesis universitaria, TSP, trabajo de suficiencia profesional, artículo científico, plan de negocio, investigación académica, sustentación de tesis" />
-        
+        <title>
+          Asesoría de Tesis Profesional | Alejandría Centro de Investigación
+        </title>
+        <meta
+          name="description"
+          content="Asesoría de tesis profesional en Perú. Más de 10 años de experiencia, +1500 casos de éxito. Elaboración completa de tesis, TSP, artículos científicos y planes de negocio. Expertos en investigación académica."
+        />
+        <meta
+          name="keywords"
+          content="asesoría de tesis, tesis profesional, elaboración de tesis, asesor de tesis Perú, tesis universitaria, TSP, trabajo de suficiencia profesional, artículo científico, plan de negocio, investigación académica, sustentación de tesis"
+        />
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alejandriaconsultora.com/" />
-        <meta property="og:title" content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación" />
-        <meta property="og:description" content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad. +1500 casos de éxito." />
-        <meta property="og:image" content="https://alejandriaconsultora.com/og-image.jpg" />
+        <meta
+          property="og:title"
+          content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación"
+        />
+        <meta
+          property="og:description"
+          content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad. +1500 casos de éxito."
+        />
+        <meta
+          property="og:image"
+          content="https://alejandriaconsultora.com/og-image.jpg"
+        />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://alejandriaconsultora.com/" />
-        <meta property="twitter:title" content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación" />
-        <meta property="twitter:description" content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad." />
-        <meta property="twitter:image" content="https://alejandriaconsultora.com/og-image.jpg" />
+        <meta
+          property="twitter:url"
+          content="https://alejandriaconsultora.com/"
+        />
+        <meta
+          property="twitter:title"
+          content="Asesoría de Tesis Profesional | Alejandría Centro de Investigación"
+        />
+        <meta
+          property="twitter:description"
+          content="Expertos en asesoría de tesis con más de 10 años de experiencia. Elaboración completa, correcciones ilimitadas y garantía de originalidad."
+        />
+        <meta
+          property="twitter:image"
+          content="https://alejandriaconsultora.com/og-image.jpg"
+        />
 
         {/* Additional SEO */}
         <meta name="robots" content="index, follow" />
@@ -250,7 +283,9 @@ const Home = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`block w-full py-3 bg-[#0CB2D5] uppercase text-white font-bold 4xl:text-[22px] rounded-[50px] mt-[30px] ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`block w-full py-3 bg-[#0CB2D5] uppercase text-white font-bold 4xl:text-[22px] rounded-[50px] mt-[30px] ${
+                  isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               >
                 {isSubmitting ? "Enviando..." : "¡Da el primer paso!"}
               </button>
@@ -270,7 +305,6 @@ const Home = () => {
         </section>
 
         <div className="gradient pt-20">
-
           <div className="w-[90%] sm:w-[520px] lg:w-[740px] 1xl:w-[1210px] 4xl:w-[1522px] flex flex-col gap-y-[60px] 1xl:flex-row justify-between 2xl:h-[626px] mx-auto relative ml-[18px] sm:ml-[40px] lg:ml-[80px]">
             <div
               data-aos="fade-down"
@@ -581,7 +615,6 @@ const Home = () => {
                         <span>989</span>
                         <span>575</span>
                         <span>820</span>
-
                       </div>
                     </div>
                   </div>

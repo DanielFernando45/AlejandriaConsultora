@@ -33,17 +33,42 @@ import icono_09 from "../assets/images/empresa_05.webp";
 import icono_10 from "../assets/images/empresa_01.webp";
 import icono_11 from "../assets/images/empresa_04.webp";
 //
-import ModaMgGiancarlo from "../components/ModaMgGiancarlo";
-import ModalMgDiana from "../components/ModalMgDiana";
-
-import ModalMgBrenda from "../components/ModalMgBrenda";
+import TeamMemberModal from "../components/TeamMemberModal";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
+// Importar imágenes de los miembros del equipo
+import imgGiancarlo from "../assets/images/nosotros/image_01.webp";
+import imgBrenda from "../assets/images/nosotros/image_02.webp";
+import imgDiana from "../assets/images/nosotros/image_03.webp";
+
+// Datos de los miembros del equipo
+const TEAM_MEMBERS = [
+  {
+    id: 'giancarlo',
+    image: imgGiancarlo,
+    name: "Mg. Giancarlo Moreno",
+    position: "CEO",
+    description: "Licenciado en Contabilidad por la UNMSM y miembro colegiado del Colegio de Contadores de Lima, con formación en MBA por ESAN y un diplomado en Tributación otorgado por el CCPL. Ha realizado especializaciones en Gestión de Proyectos y Evaluación de Decisiones Estratégicas en la Pontificia Universidad Católica de Chile. Además, cuenta con estudios en Gestión de Inversiones y Contrataciones con el Estado a través del Colegio de Economistas de Lima. Posee amplia experiencia en marketing, investigación académica y gestión empresarial, habiendo desempeñado el cargo de CEO en diversas empresas. Adicionalmente, asesora al área de Ciencias Empresariales y Economía del Centro de Investigación de Alejandría."
+  },
+  {
+    id: 'diana',
+    image: imgDiana,
+    name: "Mg. Diana Solis",
+    position: "Coordinadora del área de Salud y Biología.",
+    description: "Cirujana dentista egresada de la UPLA y miembro colegiada del Colegio de Cirujanos Dentistas de Lima. Cuenta con una Maestría en Gestión de Servicios de Salud por la UCV y es estudiante de último ciclo de la especialidad de Estadística e Investigación en la UNFV. Ha realizado cursos de metodología y búsqueda de información validados por Elsevier y la Universidad Continental. Además, posee estudios de inglés avanzado, portugués avanzado e italiano básico. Tiene amplia experiencia en la asesoría de proyectos de investigación y en la coordinación de equipos de investigación en el Centro de Investigaciones Alejandría."
+  },
+  {
+    id: 'brenda',
+    image: imgBrenda,
+    name: "Mg. Brenda Castillo",
+    position: "Coordinadora del área de Humanidades y Letras.",
+    description: "Licenciada en Lingüística por la Universidad Nacional Federico Villarreal, con habilidades en educación, investigación, docencia, oralidad y redacción de textos. Domina la gramática española y las normas APA. Posee amplia experiencia en investigación en los campos empresariales, educativos, humanísticos, derecho y ciencias políticas, así como en la revisión y corrección de textos. Además, complementa su formación con un diplomado en normativa y corrección de textos por la Universidad de Piura. Actualmente, se desempeña como coordinadora y asesora de las áreas de Negocios, Legal y Calidad del Centro de Investigaciones Alejandría."
+  }
+];
+
 const Nosotros = () => {
-  const [modalMgGiancarlo, setModalMgGiancarlo] = useState(false);
-  const [modalMgDiana, setModalMgDiana] = useState(false);
-  const [modalMgBrenda, setModalMgBrenda] = useState(false);
+  const [activeModalId, setActiveModalId] = useState(null);
 
   return (
     <LayoutApp>
@@ -484,7 +509,7 @@ const Nosotros = () => {
                   <img
                     data-aos="zoom-in"
                     data-aos-offset="100"
-                    onClick={() => setModalMgGiancarlo(true)}
+                    onClick={() => setActiveModalId('giancarlo')}
                     className="cursor-pointer w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] lg:w-[240px] lg:h-[240px] 1xl:w-[270px] 1xl:h-[270px] 4xl:w-[400px] 4xl:h-[400px] block rounded-full mx-auto object-cover"
                     src={image_01}
                     alt="image_01"
@@ -515,7 +540,7 @@ const Nosotros = () => {
               <div className="flex flex-col mn:flex-row justify-between items-center mn:items-start gap-y-[50px] mn:gap-y-0">
                 <div className="1xl:w-[519px] 1xl:h-[617px] 4xl:h-[755px] 4xl:w-[519px] flex flex-col gap-y-[40px] lg:gap-y-[60px] text-center">
                   <img
-                    onClick={() => setModalMgBrenda(true)}
+                    onClick={() => setActiveModalId('brenda')}
                     data-aos="zoom-in"
                     data-aos-offset="100"
                     className="cursor-pointer w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] lg:w-[200px] lg:h-[200px] 1xl:w-[270px] 1xl:h-[270px] 4xl:w-[400px] 4xl:h-[400px] block rounded-full mx-auto object-cover"
@@ -550,7 +575,7 @@ const Nosotros = () => {
                   <img
                     data-aos="zoom-in"
                     data-aos-offset="100"
-                    onClick={() => setModalMgDiana(true)}
+                    onClick={() => setActiveModalId('diana')}
                     className="cursor-pointer w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] lg:w-[200px] lg:h-[200px] 1xl:w-[270px] 1xl:h-[270px] 4xl:w-[400px] 4xl:h-[400px] block rounded-full mx-auto object-cover"
                     src={image_03}
                     alt="image_01"
@@ -582,18 +607,14 @@ const Nosotros = () => {
             </div>
           </div>
         </section>
-        <ModaMgGiancarlo
-          activeModal={modalMgGiancarlo}
-          setActiveModal={setModalMgGiancarlo}
-        />
-        <ModalMgDiana
-          activeModal={modalMgDiana}
-          setActiveModal={setModalMgDiana}
-        />
-        <ModalMgBrenda
-          activeModal={modalMgBrenda}
-          setActiveModal={setModalMgBrenda}
-        />
+        {TEAM_MEMBERS.map((member) => (
+          <TeamMemberModal
+            key={member.id}
+            activeModal={activeModalId === member.id}
+            setActiveModal={(isOpen) => setActiveModalId(isOpen ? member.id : null)}
+            {...member}
+          />
+        ))}
         {/*  */}
         <section className="pt-[250px]">
           {/* El primero div es para tener referencia y posicionar la capa a la izquierda o derecha */}

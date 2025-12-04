@@ -1,9 +1,14 @@
 import React from "react";
-import profile from "../assets/images/nosotros/image_01.webp";
 
-const ModaMgGiancarlo = ({ activeModal, setActiveModal }) => {
+const TeamMemberModal = ({ 
+  activeModal, 
+  setActiveModal, 
+  image, 
+  name, 
+  position, 
+  description 
+}) => {
   return (
-    //
     <div
       className={`bg-black/50 w-full h-full fixed top-0 left-0 ${
         activeModal ? "visible opacity-100" : "invisible opacity-0"
@@ -21,31 +26,21 @@ const ModaMgGiancarlo = ({ activeModal, setActiveModal }) => {
           x
         </button>
         <img
-          src={profile}
+          src={image}
           className="block sm:w-[250px] h-[100px] w-[100px] sm:h-[250px] 1xl:w-[400px] 1xl:h-[400px] rounded-full mb-[20px] sm:mb-[50px] 1xl:mb-0 object-cover"
-          alt="profile_image"
+          alt={`${name} profile`}
         />
-        <div className="1xl:w-[886px] ">
+        <div className="1xl:w-[886px]">
           <div>
             <h2 className="text-[#1C1C34] text-[16px] sm:text-[25px] 1xl:text-[50px] font-extrabold text-center 1xl:text-start sm:pb-[20px] 1xl:pb-0">
-              Mg. Giancarlo Moreno
+              {name}
             </h2>
             <h3 className="text-[#0CB2D5] sm:text-[20px] 1xl:text-[35px] text-center 1xl:text-start font-semibold sm:pb-[25px] 1xl:pb-0">
-              CEO
+              {position}
             </h3>
           </div>
           <p className="text-[#1C1C34] w-[250px] sm:w-[420px] lg:w-[540px] 1xl:w-auto text-[9px] sm:text-[14px] lg:text-[16px] 1xl:text-[25px] font-medium text-center 1xl:text-start leading-normal">
-            Licenciado en Contabilidad por la UNMSM y miembro colegiado del
-            Colegio de Contadores de Lima, con formación en MBA por ESAN y un
-            diplomado en Tributación otorgado por el CCPL. Ha realizado
-            especializaciones en Gestión de Proyectos y Evaluación de Decisiones
-            Estratégicas en la Pontificia Universidad Católica de Chile. Además,
-            cuenta con estudios en Gestión de Inversiones y Contrataciones con
-            el Estado a través del Colegio de Economistas de Lima. Posee amplia
-            experiencia en marketing, investigación académica y gestión
-            empresarial, habiendo desempeñado el cargo de CEO en diversas
-            empresas. Adicionalmente, asesora al área de Ciencias Empresariales
-            y Economía del Centro de Investigación de Alejandría.
+            {description}
           </p>
         </div>
       </div>
@@ -53,4 +48,4 @@ const ModaMgGiancarlo = ({ activeModal, setActiveModal }) => {
   );
 };
 
-export default ModaMgGiancarlo;
+export default TeamMemberModal;
