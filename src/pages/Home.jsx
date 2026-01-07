@@ -655,8 +655,7 @@ const Home = () => {
               {/* MAPA */}
 
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d289.9346312717916!2d-77.03602369539553!3d-12.120370869749902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c822dc87dc0b%3A0xbc6adb55c42fa1e8!2sOficina%20702%2C%20Bolognesi%20229%2C%20Miraflores%20LIMA%2018!5e0!3m2!1ses!2spe!4v1745447955154!5m2!1ses!2spe"
-                width="600"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.2349608922773!2d-77.02628862462196!3d-12.096060888144626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86563e32b73%3A0x34641c48d9b0ef08!2sC.%20German%20Schreiber%20Gulsmanco%20276%2C%20San%20Isidro%2015023!5e0!3m2!1sen!2spe!4v1767794973998!5m2!1sen!2spe"                width="600"
                 height="650"
                 className="mn:w-[340px] h-[222px] sm:w-[524px] sm:h-[222px] lg:w-full lg:h-[400px] mx-auto 1xl:[500px] rounded-3xl border "
                 allowFullScreen=""
