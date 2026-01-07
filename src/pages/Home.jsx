@@ -623,8 +623,8 @@ const Home = () => {
                         Lima
                       </p>
                       <div className="flex justify-evenly font-semibold">
-                        <p className="text-[14px] sm:text-[16px] 1xl:text-[16px] 4xl:text-[20px] w-[144px] sm:w-[170px] lg:w-[170px] 1xl:w-auto break-words text-center">
-                          C.Bolognesi 229 - Miraflores <br />, oficina 702
+                        <p className="text-[14px] sm:text-[15px] 1xl:text-[15px] 4xl:text-[20px] w-[144px] sm:w-[170px] lg:w-[170px] 1xl:w-auto break-words text-center">
+                          German Schreiber 276 - San Isidro <br />, Edificio Schreiber
                         </p>
                       </div>
                     </div>

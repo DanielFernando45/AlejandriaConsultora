@@ -64,7 +64,8 @@ const Footer = () => {
                   />
                 </figure>
                 <p className="leading-[24.38px] font-semibold">
-                    Calle Bolognesi 229, oficina 702 frente a la Embajada de Canadá - Miraflores
+                    German Schreiber 276 - San Isidro - Lima, en el Edificio Schreiber. 
+                    Ref. entre la cuadra 1 y 2 de Carnaval y Moreyra
                 </p>
               </div>
             </div>
