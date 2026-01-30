@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import LayoutApp from "../layout/LayoutApp";
 import backgroundPromocion from "../assets/images/banners/backgroundPromociones.webp"
-import tituloBronce from "../assets/images/promociones/TituloBronce.png"
-import tituloOro from "../assets/images/promociones/TituloOro.png"
-import tituloPlata from "../assets/images/promociones/TituloPlata.png"
-import maestriaBronce from "../assets/images/promociones/MaestriaBronce.png"
-import maestriaOro from "../assets/images/promociones/MaestriaOro.png"
-import maestriaPlata from "../assets/images/promociones/MaestriaPlata.png"
+
 import promo1 from "../assets/images/planes/TITULO NEGOCIO SOCIAL Y LEGAL.jpeg"
 import promo2 from "../assets/images/planes/MAESTRIA NEGOCIO SOCIAL Y LEGAL.jpeg"
 import promo3 from "../assets/images/planes/DOCTORADO NEGOCIO, SOCIAL Y LEGAL.jpeg"
@@ -21,10 +16,8 @@ import Aos from "aos";
 import sha256 from "crypto-js/sha256";
 import "aos/dist/aos.css";
 import { useEffect, useState, useRef } from "react";
-import ModalPromocion from "../components/ModalPromocion";
 
 const Promociones = () => {
-  const [modalPromocion, setModalPromocion] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
@@ -560,10 +553,7 @@ const Promociones = () => {
           </div>
 
         </section>
-        <ModalPromocion
-          activeModal={modalPromocion}
-          setActiveModal={setModalPromocion}
-        />
+
       </main>
     </LayoutApp>
   )

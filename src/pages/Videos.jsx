@@ -55,6 +55,27 @@ const Videos = () => {
       categories: ['Ciencia', 'Educación'],
       youtubeUrl: 'https://www.youtube.com/embed/C9sbMxO4pKk'
     },
+    {
+      id: 6,
+      title: 'Entrevista en Impulsando al Emprendedor',
+      description: 'Giancarlo Moreno, contó un poco sobre todo el trabajo que vamos realizando de la mano de ustedes .',
+      categories: ['Ciencia', 'Educación'],
+      youtubeUrl: 'https://www.youtube.com/watch?v=U-0d9VnF2-g'
+    },
+    {
+      id: 7,
+      title: '¿Cómo reconocer una empresa informal y con poco tiempo en el mercado?',
+      description: 'Giancarlo Moreno, contó un poco sobre todo el trabajo que vamos realizando de la mano de ustedes .',
+      categories: ['Investigación', 'Educación'],
+      youtubeUrl: 'https://www.youtube.com/embed/A932RrVb_hs'
+    },
+    {
+      id: 8,
+      title: 'Elegir mal tu consultora de tesis te puede costar meses perdidos',
+      description: 'Giancarlo Moreno, contó un poco sobre todo el trabajo que vamos realizando de la mano de ustedes .',
+      categories: ['Investigación', 'Educación'],
+      youtubeUrl: 'https://www.youtube.com/embed/nXhCKwabuL8'
+    },
   ];
 
   // Video destacado (primer video del arreglo)

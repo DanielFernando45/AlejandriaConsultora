@@ -411,6 +411,7 @@ const Centro = () => {
               </p>
             </div>
             <div className="pt-[100px] sm:pt-[250px] lg:pt-[250px] 1xl:pt-[362px] space-y-[150px]">
+              
               <div className="">
                 <div className="pb-5 flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
                   <div data-aos="flip-right" data-aos-offset="100" className="border border-white rounded-2xl">
@@ -418,39 +419,6 @@ const Centro = () => {
                       data-aos="flip-right"
                       data-aos-offset="100"
                       src={image_04}
-                      className=" w-[70px] h-[100px] rounded-2xl sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                      alt="image_04"
-                      decoding="async"
-                    />
-                  </div>
-                  <div data-aos="flip-left" data-aos-offset="100" className="border border-white rounded-2xl">
-                    <img
-                      data-aos="flip-left"
-                      data-aos-offset="100"
-                      src={image_05}
-                      className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                      alt="image_05"
-                      decoding="async"
-                    />
-                  </div>
-
-                </div>
-                <img
-                  data-aos="flip-right"
-                  data-aos-offset="100"
-                  src={image_06}
-                  className=" w-[300px] sm:w-[90%] lg:w-[850px] 1xl:w-[1197px] 4xl:w-[1521px] h-[20px] mx-auto sm:-mt-[10px]"
-                  alt="image_06"
-                  decoding="async"
-                />
-              </div>
-              <div className="">
-                <div className="pb-5 flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
-                  <div data-aos="flip-right" data-aos-offset="100" className="border border-white rounded-2xl">
-                    <img
-                      data-aos="flip-right"
-                      data-aos-offset="100"
-                      src={image_07}
                       className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
                       alt="image_04"
                       decoding="async"
@@ -465,14 +433,17 @@ const Centro = () => {
                     alt="image_05"
                     decoding="async"
                   />
-                  <img
-                    data-aos="flip-left"
-                    data-aos-offset="100"
-                    src={image_09}
-                    className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                    alt="image_05"
-                    decoding="async"
-                  />
+                  
+                  <div data-aos="flip-right" data-aos-offset="100" className="border border-white rounded-2xl">
+                    <img
+                      data-aos="flip-right"
+                      data-aos-offset="100"
+                      src={image_05}
+                      className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                      alt="image_04"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
                 <img
                   data-aos="flip-left"

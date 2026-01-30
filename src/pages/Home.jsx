@@ -262,8 +262,11 @@ const Home = () => {
              className="font-bold text-[16px] sm:text-[25px] lg:text-[30px] 1xl:text-[40px] 4xl:text-[50px] lg:w-[714px] 1xl:w-[1020px] 4xl:w-[1224px] absolute lg:bottom-[162px] bottom-[50px] ml-[18px] sm:ml-[46px] lg:ml-[80px] 1xl:ml-[80px] 4xl:ml-[104px] text-white uppercase leading-tight"
          >
             Expertos en investigación académica que transforman tu tesis en un logro profesional...
+             <div className="uppercase sm:text-[25px] lg:text-[30px] 4xl:text-[35px] text-[#0CB2D5] font-semibold">
+              Alejandría a la altura de tus grandes metas
+              </div> 
           </p>
-
+         
         </section>
 
         <div className="gradient pt-20">
@@ -555,8 +558,8 @@ const Home = () => {
               </h2>
 
               {/* CAJAS CONTACTO */}
-              <div className="flex flex-col items-center 1xl:flex-row 4xl:h-[249px] gap-x-[40px] mt-[110px] mb-[100px] gap-y-8">
-                <div className="flex gap-x-[10px] mn:gap-x-[40px]">
+              <div className="flex flex-col items-center justify-center 1xl:flex-row 4xl:h-[249px] gap-x-[40px] mt-[110px] mb-[100px] gap-y-8">
+                <div className="flex  gap-x-[10px] mn:gap-x-[40px]">
                   <div
                     data-aos="fade-up"
                     data-aos-offset="200"
@@ -626,26 +629,7 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div
-                    data-aos="fade-down"
-                    data-aos-offset="200"
-                    data-aos-duration="700"
-                    className="contacto_box_shadow rounded-[25px] w-[140px] h-[145px] sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[240px] 1xl:w-[280px] 1xl:h-[220px] 4xl:w-[349px] 4xl:h-[240px] flex flex-col items-center justify-center sm:gap-y-[30px] gap-y-[10px]"
-                  >
-                    <img
-                      className="w-[23px] h-[25px] sm:w-auto sm:h-auto"
-                      src={icono_contacto_03}
-                      alt="icono_contacto_03"
-                    />
-                    <div className="">
-                      <p className="sm:text-[20px] 4xl:text-[25px] text-center font-bold">
-                        Chiclayo
-                      </p>
-                      <p className="text-[14px] sm:text-[16px] 4xl:text-[20px] font-semibold w-[144px] sm:w-[170px] lg:w-[170px] 1xl:w-auto break-words text-center">
-                        C. Torres Paz Nº 280, Ofic. 206
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
