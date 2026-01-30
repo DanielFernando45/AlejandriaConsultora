@@ -15,16 +15,19 @@ const MetodologiaInvestigacion = React.lazy(() =>
 const RevistasDepredadoras = React.lazy(() =>
   import("./pages/RevistasDepredadoras")
 );
+
+const Bloc = React.lazy(() => import("./pages/Bloc"));
+const BlogDetail = React.lazy(() => import("./components/bloc/BlogDetail"));
+const Videos = React.lazy(() => import("./pages/Videos"));
+const Catalogo = React.lazy(() => import("./pages/Catalogo"));
 const BlogTesis = React.lazy(() => import("./pages/BlogTesis"));
 const BlogArticulo = React.lazy(() => import("./pages/BlogArticulo"));
 const Tesis = React.lazy(() => import("./pages/Tesis"));
 const Tsp = React.lazy(() => import("./pages/Tsp"));
 const PlanNegocio = React.lazy(() => import("./pages/PlanNegocio"));
-const ArticuloCientifico = React.lazy(() =>
-  import("./pages/ArticuloCientifico")
-);
+const ArticuloCientifico = React.lazy(() => import("./pages/ArticuloCientifico"));
 const Centro = React.lazy(() => import("./pages/Centro"));
-const Cursos = React.lazy(() => import("./pages/Cursos"));
+const Postulaciones = React.lazy(() => import("./pages/Postulaciones"));
 const LibroReclamasiones = React.lazy(() => import("./pages/LibroReclamasiones"));
 const PoliticasPrivacidad = React.lazy(() => import("./pages/PoliticasPrivacidad"));
 
@@ -81,6 +84,11 @@ export const App = () => {
         <Route path="/blog/tesis" element={<BlogTesis />} />
         <Route path="/politicas-privacidad" element={<PoliticasPrivacidad />} />
         <Route path="/blog/Articulo" element={<BlogArticulo />} />
+        <Route path="/postulacion" element={<Postulaciones />} />
+        <Route path="/videos" element={<Videos />} />
+        <Route path="/bloc" element={<Bloc />} />
+        <Route path="/bloc/:id" element={<BlogDetail />} />
+        <Route path="/catalogo" element={<Catalogo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

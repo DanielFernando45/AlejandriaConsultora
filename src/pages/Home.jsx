@@ -127,7 +127,7 @@ const Home = () => {
         <title>Asesoría de Tesis Profesional | Alejandría Centro de Investigación</title>
         <meta name="description" content="Asesoría de tesis profesional en Perú. Más de 10 años de experiencia, +1500 casos de éxito. Elaboración completa de tesis, TSP, artículos científicos y planes de negocio. Expertos en investigación académica." />
         <meta name="keywords" content="asesoría de tesis, tesis profesional, elaboración de tesis, asesor de tesis Perú, tesis universitaria, TSP, trabajo de suficiencia profesional, artículo científico, plan de negocio, investigación académica, sustentación de tesis" />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alejandriaconsultora.com/" />
@@ -257,16 +257,13 @@ const Home = () => {
             </form>
           </div>
           {/* FORMULARIO */}
-
           <p
             data-aos="zoom-in-up"
-            className="font-bold text-[16px] sm:text-[30px] lg:text-[40px] 1xl:text-[50px] 4xl:text-[60px] lg:w-[714px] 1xl:w-[1020px] 4xl:w-[1224px] absolute lg:bottom-[162px] bottom-[50px] ml-[18px] sm:ml-[46px] lg:ml-[80px] 1xl:ml-[80px] 4xl:ml-[104px] text-white uppercase leading-tight"
-          >
-            Alejandría,
-            <span className="block font-medium text-[14px] sm:text-[25px] lg:text-[35px] 1xl:text-[50px]">
-              A la altura de tus grandes metas
-            </span>
+             className="font-bold text-[16px] sm:text-[25px] lg:text-[30px] 1xl:text-[40px] 4xl:text-[50px] lg:w-[714px] 1xl:w-[1020px] 4xl:w-[1224px] absolute lg:bottom-[162px] bottom-[50px] ml-[18px] sm:ml-[46px] lg:ml-[80px] 1xl:ml-[80px] 4xl:ml-[104px] text-white uppercase leading-tight"
+         >
+            Expertos en investigación académica que transforman tu tesis en un logro profesional...
           </p>
+
         </section>
 
         <div className="gradient pt-20">
@@ -655,7 +652,7 @@ const Home = () => {
               {/* MAPA */}
 
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.2349608922773!2d-77.02628862462196!3d-12.096060888144626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86563e32b73%3A0x34641c48d9b0ef08!2sC.%20German%20Schreiber%20Gulsmanco%20276%2C%20San%20Isidro%2015023!5e0!3m2!1sen!2spe!4v1767794973998!5m2!1sen!2spe"                width="600"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.2349608922773!2d-77.02628862462196!3d-12.096060888144626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86563e32b73%3A0x34641c48d9b0ef08!2sC.%20German%20Schreiber%20Gulsmanco%20276%2C%20San%20Isidro%2015023!5e0!3m2!1sen!2spe!4v1767794973998!5m2!1sen!2spe" width="600"
                 height="650"
                 className="mn:w-[340px] h-[222px] sm:w-[524px] sm:h-[222px] lg:w-full lg:h-[400px] mx-auto 1xl:[500px] rounded-3xl border "
                 allowFullScreen=""

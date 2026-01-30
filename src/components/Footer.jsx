@@ -65,7 +65,6 @@ const Footer = () => {
                 </figure>
                 <p className="leading-[24.38px] font-semibold">
                     German Schreiber 276 - San Isidro - Lima, en el Edificio Schreiber. 
-                    Ref. entre la cuadra 1 y 2 de Carnaval y Moreyra
                 </p>
               </div>
             </div>

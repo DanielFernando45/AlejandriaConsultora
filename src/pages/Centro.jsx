@@ -5,17 +5,19 @@ import backgroundCentroRecursos from "../assets/images/banners/backgroundCentroR
 import image_01 from "../assets/images/centro-recursos/image_01.webp";
 import image_02 from "../assets/images/centro-recursos/image_02.webp";
 import image_03 from "../assets/images/centro-recursos/image_03.webp";
-import image_04 from "../assets/images/centro-recursos/image_04.webp";
-import image_05 from "../assets/images/centro-recursos/image_05.webp";
+import image_04 from "../assets/images/centro-recursos/balotario.png";
+import image_05 from "../assets/images/centro-recursos/elabtesis.png";
 import image_06 from "../assets/images/centro-recursos/image_06.png";
-import image_07 from "../assets/images/centro-recursos/image_07.webp";
-import image_08 from "../assets/images/centro-recursos/image_08.webp";
-import image_09 from "../assets/images/centro-recursos/image_09.webp";
+import image_07 from "../assets/images/centro-recursos/escalarSistemas.png";
+import image_08 from "../assets/images/centro-recursos/fuentesconfiables.png";
+import image_09 from "../assets/images/centro-recursos/redesSociales.png";
 import image_10 from "../assets/images/centro-recursos/image_10.webp";
 import image_11 from "../assets/images/centro-recursos/image_11.webp";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Marquee from "react-fast-marquee";
+import tesis from "../assets/images/tesistaBible/tesisimg.png";
+import capa_04 from "../assets/images/capa_04.png";
 
 const Centro = () => {
   useEffect(function () {
@@ -143,6 +145,20 @@ const Centro = () => {
     setDialog(false);
     document.body.style.overflow = "";
   };
+
+  const handleCheckoutClick = () => {
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("track", "InitiateCheckout", {
+        value: 37.00,   // precio de tu producto
+        currency: "PEN" // código ISO (puede ser USD, EUR, MXN, etc.)
+      });
+    }
+
+    // Redirigir a Hotmart
+    window.open("https://pay.hotmart.com/C101263888O?checkoutMode=10", "_blank");
+  };
+
+
 
   return (
     <LayoutApp>
@@ -396,48 +412,56 @@ const Centro = () => {
             </div>
             <div className="pt-[100px] sm:pt-[250px] lg:pt-[250px] 1xl:pt-[362px] space-y-[150px]">
               <div className="">
-                <div className="flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
-                  <img
-                    data-aos="flip-right"
-                    data-aos-offset="100"
-                    src={image_04}
-                    className="w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                    alt="image_04"
-                    decoding="async"
-                  />
-                  <img
-                    data-aos="flip-left"
-                    data-aos-offset="100"
-                    src={image_05}
-                    className="w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                    alt="image_05"
-                    decoding="async"
-                  />
+                <div className="pb-5 flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
+                  <div data-aos="flip-right" data-aos-offset="100" className="border border-white rounded-2xl">
+                    <img
+                      data-aos="flip-right"
+                      data-aos-offset="100"
+                      src={image_04}
+                      className=" w-[70px] h-[100px] rounded-2xl sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                      alt="image_04"
+                      decoding="async"
+                    />
+                  </div>
+                  <div data-aos="flip-left" data-aos-offset="100" className="border border-white rounded-2xl">
+                    <img
+                      data-aos="flip-left"
+                      data-aos-offset="100"
+                      src={image_05}
+                      className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                      alt="image_05"
+                      decoding="async"
+                    />
+                  </div>
+
                 </div>
                 <img
                   data-aos="flip-right"
                   data-aos-offset="100"
                   src={image_06}
-                  className="w-[300px] sm:w-[90%] lg:w-[850px] 1xl:w-[1197px] 4xl:w-[1521px] h-[20px] mx-auto sm:-mt-[10px]"
+                  className=" w-[300px] sm:w-[90%] lg:w-[850px] 1xl:w-[1197px] 4xl:w-[1521px] h-[20px] mx-auto sm:-mt-[10px]"
                   alt="image_06"
                   decoding="async"
                 />
               </div>
               <div className="">
-                <div className="flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
-                  <img
-                    data-aos="flip-right"
-                    data-aos-offset="100"
-                    src={image_07}
-                    className="w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
-                    alt="image_04"
-                    decoding="async"
-                  />
+                <div className="pb-5 flex justify-center space-x-[20px] sm:space-x-[50px] lg:space-x-[50px] 1xl:space-x-[118px] 4xl:space-x-[150px]">
+                  <div data-aos="flip-right" data-aos-offset="100" className="border border-white rounded-2xl">
+                    <img
+                      data-aos="flip-right"
+                      data-aos-offset="100"
+                      src={image_07}
+                      className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                      alt="image_04"
+                      decoding="async"
+                    />
+                  </div>
+
                   <img
                     data-aos="flip-left"
                     data-aos-offset="100"
                     src={image_08}
-                    className="w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                    className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
                     alt="image_05"
                     decoding="async"
                   />
@@ -445,7 +469,7 @@ const Centro = () => {
                     data-aos="flip-left"
                     data-aos-offset="100"
                     src={image_09}
-                    className="w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
+                    className="rounded-2xl w-[70px] h-[100px] sm:w-[127px] sm:h-[180px] lg:w-[155px] lg:h-[220px] 1xl:w-[279px] 1xl:h-[394px] 4xl:w-[354px] 4xl:h-[500px]"
                     alt="image_05"
                     decoding="async"
                   />
@@ -470,6 +494,103 @@ const Centro = () => {
             ¡Solicita más información!
           </button>
         </section>
+
+        <section className="bg-[#1C1C34] pb-[1200px]">
+          <div className="bg-[#1C1C34] pt-[50px] mn:pt-[50px] sm:pt-[50px] md:pt-[50px] xl:pt-[50px]">
+            <div
+              data-aos="fade-up"
+              data-aos-offset="200"
+              className="mb-20 w-[98%] mn:w-[339px] h-[373px] sm:w-[520px] md:w-full md:px-10  lg:w-[880px] xl:w-[1250px] 1xl:w-[1241px] 3xl:w-[1569px] sm:h-[563px] lg:h-[600px] 1xl:h-[402px] 4xl:h-[444px] 1xl:items-center flex flex-col  mx-auto  1xl:gap-x-[50px] gap-y-[20px]"
+            >
+              <p
+                data-aos="zoom-in"
+                data-aos-offset="150"
+                className="text-white font-semibold text-[14px] sm:text-[30px] lg:text-[38px] xl:text-[45px] 3xl:text-[50px] text-center"
+              >
+                Te damos las herramientas para dejar el caos atrás y avanzar con seguridad
+              </p>
+
+              <div className="flex flex-col text-white gap-5 xl:flex-row">
+                <div
+                  data-aos="fade-right"
+                  data-aos-offset="250"
+                  className="w-full flex justify-center"
+                >
+                  <img
+                    className="w-[200px] mn:w-[220px] sm:w-[400px] md:w-[450px] 3xl:w-[600px] h-[250px]  mn:h-[270px] sm:h-[500px] md:h-[600px] 3xl:h-[800px]"
+                    src={tesis}
+                    alt=""
+                  />
+                </div>
+                <div
+                  data-aos="fade-left"
+                  data-aos-offset="250"
+                  className="flex flex-col lg:gap-10 lg:justify-center"
+                >
+                  <div className="px-5 3xl:w-[800px] ">
+                    <div className="flex flex-col  xl:items-start 3xl:gap-5">
+                      <p className="text-[18px] sm:text-[30px] md:text-[42px] 3xl:text-[50px] text-center">La Bilbia del Tesista</p>
+                      <p className="text-center sm:text-[20px] md:text-[25px] xl:text-[33px] 3xl:text-[38px]">Un <span className="text-[#0CB2D5] ">faro</span>  para tu camino académico</p>
+                    </div>
+                    <div className="mt-7 font-medium text-[10px] mn:text-[12px] sm:text-[18px] md:text-[20px] lg:text-[25px] 3xl:text-[27px]">
+                      <p>- Explicación simple de todos los capítulos de la tesis</p> <br></br>
+                      <p className="textfinal">- Plantillas editables, ejemplos reales y ejercicios prácticos</p> <br></br>
+                      <p className="textfinal">- Estrategias para elegir el tema, redactar sin bloqueo y organizar tus ideas</p>
+                    </div>
+                  </div>
+                  <div
+                    data-aos="zoom-out"
+                    data-aos-offset="200"
+                    className="flex items-center justify-center relative w-[200px] sm:w-[400px]  1xl:w-auto 1xl:h-auto mx-auto 1xl:mx-0]"
+                  >
+                    <img
+                      src={capa_04}
+                      className="block 1xl:hidden absolute  w-[250px] sm:w-[400px] -translate-y-1/2 z-10"
+                      alt="capa_02"
+                    />
+                  </div>
+                  <button
+                    onClick={handleCheckoutClick}
+                    data-aos="fade-up"
+                    data-aos-offset="300"
+                    className="text-[14px] sm:text-[20px] lg:text-[30px] block mt-4 text-white font-extrabold uppercase bg-[#FCB400] rounded-full w-full mn:w-[340px] h-[40px] sm:w-[520px] sm:h-[60px] lg:w-[720px] lg:h-[80px] 4xl:w-[800px] 4xl:h-[100px] mx-auto"
+                  >
+                    compre aqui
+                  </button>
+                </div>
+              </div>
+
+              <div
+                data-aos="fade-up"
+                data-aos-offset="200"
+                className="flex flex-col text-white px-5  font-medium sm:text-[16px] md:text-[20px] xl:flex-row xl:items-end xl:text-[25px] "
+              >
+                <div>
+                  <p className="text-[#0CB2D5]">Incluye:</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. I: Términos Básicos</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>   Cap. II: Estructura de la Tesis</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. III: Problema de Investigación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. IV: Título para una Investigación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. V: Matrices de Consistencia y Operacionalización</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VI: Redacción de la Introducción</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VII: Planteamiento del problema</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span>  Cap. VIII: Marco Teórico </p> <br></br>
+                </div>
+                <div>
+                  <p><span className="text-[#464646]">✔</span> Cap. IX: Recopilación de Información</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. X: Metodología</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XI: Aspecto Administrativo</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XII: Resultados</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XIII: Prueba Estadística</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XIV: Discusión, Conclusión y Recomendación</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XV: Tipos de Matrices según Diseño</p> <br></br>
+                  <p><span className="text-[#464646]">✔</span> Cap. XVI: Tips para realizar el Parafraseo</p> < br></br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
     </LayoutApp>
   );
