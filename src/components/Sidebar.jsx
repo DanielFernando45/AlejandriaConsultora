@@ -144,10 +144,10 @@ const Sidebar = ({
                 <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700 py-2" to={"/videos"}>
                   Videos
                 </Link>
-                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700 py-2" to={"/blog"}>
+                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700 py-2" to={"/bloc"}>
                   Blog
                 </Link>
-                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700 py-2" to={"/catalogos"}>
+                <Link className="px-4 font-semibold text-[18px] hover:bg-gray-700 py-2" to={"/centro-recursos"}>
                   Catalogos
                 </Link>
               </div>
